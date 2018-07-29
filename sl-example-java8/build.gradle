@@ -1,0 +1,41 @@
+
+dependencies {
+    testCompile "junit:junit:${versions.junit}"
+    compile "org.projectlombok:lombok:${versions.lombok}"
+    compile "com.google.guava:guava:21.0"
+}
+
+/***************************************************************************************
+ SEALIGHTS
+ ***************************************************************************************/
+/**
+ * This section cannot be defines in general-setting file, only in the build script
+ */
+buildscript {
+    repositories {
+        // jcenter()
+        maven {
+            credentials {
+                username "devops"
+                password "s2015l"
+            }
+            url "http://nex.sealights.co:8081/repository/sealights-internal"
+        }
+        mavenLocal()
+    }
+}
+
+/**
+ * This is executed, if a single project should be built with SL
+ * This is the default behavior when option 'all' is not provided
+ * The default root project settings is overwritten to get particular results of the subproject
+ */
+if (project.apply_sealights_in_subproject) {
+    apply plugin: 'io.sealights.on-premise.agents.plugin.sealights-gradle-plugin'
+
+    sealights {
+        appName = "GradleExampleJava8"
+        testTasks = ["test", "kuku"]
+    }
+    println "Applied the subproject appName = $sealights.appName"
+}

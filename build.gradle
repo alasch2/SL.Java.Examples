@@ -1,0 +1,116 @@
+apply from: 'general-settings.gradle'
+apply from: 'versions.gradle'
+
+subprojects {
+    if (it.name != 'sl-example_junit5') {
+        apply from: '../general-settings.gradle'
+//        apply from: '../versions.gradle'
+        apply from: '../jacoco-cfg.gradle'
+    }
+}
+
+ext {
+    apply_sealights_in_subproject=false
+}
+
+if (project.hasProperty('sl')) {
+    if (project.hasProperty('all')) {
+        project.apply_sealights_in_subproject = false
+    }
+    else {
+        project.apply_sealights_in_subproject = true;
+    }
+    println "'sl' provided; apply_sealights_in_subproject = $apply_sealights_in_subproject"
+}
+
+dependencies {
+    testCompile "junit:junit:${versions.junit}"
+    testCompile "org.testng:testng:${versions.testng}"
+    compile "ch.qos.logback:logback-classic:${versions.logback}"
+    compile "ch.qos.logback:logback-core:${versions.logback}"
+    compile "org.slf4j:slf4j-api:${versions.slf4j}"
+    compile "org.projectlombok:lombok:${versions.lombok}"
+    compile "com.google.guava:guava:21.0"
+}
+
+/***************************************************************************************
+ SEALIGHTS
+ ***************************************************************************************/
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            credentials {
+                username "devops"
+                password "s2015l"
+            }
+            url "http://nex.sealights.co:8081/repository/sealights-internal"
+        }
+        mavenLocal()
+    }
+    dependencies {
+        // classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:2.0.0-SNAPSHOT'
+        //classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:2.0.45'
+        classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:latest.release'
+    }
+}
+
+/**
+ * This is executed for any build when the 'sl' option is provided
+ */
+
+subprojects {
+    if (project.hasProperty('sl')) {
+        apply plugin: 'io.sealights.on-premise.agents.plugin.sealights-gradle-plugin'
+
+        sealights {
+            includeResources = true
+            //tokenFile = path/to/token
+            tokenFile = "C:/SL/ENV/tokens/sl_token_ala.txt"
+            //workspacepath=${sourceSets.main.output.classesDir}
+            // workspacepath=System.getProperty('ws')
+            // tokenFile = "/mnt/c/SL/ENV/tokens/sl_token_ala.txt"
+            //buildSessionIdFile = "buildSessionId.txt"
+            logEnabled = true
+            logLevel = "info"
+            logToFile = true
+            logToConsole = true
+            // appName and packagesIncluded are overwritten by subprojects
+            // when property -all' is NOT provided
+            appName = "AllGradleJavaExamples"
+            packagesIncluded = "io.sl.ex.*"
+
+            branch = "master"
+            build = System.getProperty('sl.build')
+            createBuildSessionId = true
+            filesExcluded = "*Test"
+            // buildScannerIgnoreLogEnabled=true
+            // testListenerIgnoreLogEnabled=true
+            // testStage = "ut1"
+//             testListenerJar = "C:/Users/ala schneider/Dev/SL.OnPremise.Agents.Java/java-agent-bootstrapper/target/java-agent-bootstrapper-1.0.0-SNAPSHOT.jar"
+//             buildScannerJar = "C:/Users/ala schneider/Dev/SL.OnPremise.Agents.Java/java-build-agent/target/java-build-agent-1.0.0-SNAPSHOT.jar"
+            // The test tasks names for applying the test listener
+            // If not provided, the default tasks are assigned like in commented value
+            //testTasks=["test", "junitPlatformTest", "integrationTest"]
+        }
+
+        println "Assigned the default appName = $sealights.appName"
+
+        if (!project.hasProperty('all')) {
+            project.afterEvaluate {
+                subprojects {
+                    it.sealights.appName = ext.appName
+                    it.sealights.packagesIncluded = ext.packagesIncluded
+                }
+            }
+        }
+
+        test {
+            sealights {
+                testStage = "Unit Tests"
+            }
+        }
+    }
+}
+

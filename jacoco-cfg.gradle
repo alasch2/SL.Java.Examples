@@ -1,0 +1,35 @@
+if (project.hasProperty('use_jacoco')) {
+    apply plugin: 'jacoco'
+
+    jacoco {
+        toolVersion = "0.8.0"
+        reportsDir = file("$buildDir/customJacocoReportDir")
+    }
+    dependencies {
+        testCompile libraries.jmockit
+    }
+
+    test {
+        jacoco {
+            // enabled = false
+            append = true
+            destinationFile = file("$buildDir/jacoco/test.exec")
+        }
+    }
+
+    allprojects {
+        println "project $project.name"
+        println "jacoco.reportsDir: $jacoco.reportsDir"
+        println "project.reportsDir: $project.reportsDir"
+    }
+
+    jacocoTestReport {
+        reports {
+            html.enabled true
+            xml.enabled false
+            csv.enabled false
+            html.destination file("${buildDir}/jacocoHtml")
+        }
+    }
+
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The agent sets its logging configuration within the code. -->
+<Configuration scan="false" status="warn">
+<!-- 	packages="io.sealights.onpremise.agents.pl.log4j2.plugins"> -->
+	<Properties>
+<!-- 		<property name="logFile">test-sealights-pl-agent</property> -->
+<!-- 		<property name="logDir">logs</property> -->
+<!-- 		<property name="fileCount">10</property> -->
+<!-- 		<property name="fileSizeLimitMB">10</property> -->
+<!-- 		<property name="patternFormat">%d{ISO8601} %-5p [${pid:all}|%-18.18t|%-4T] %logger{35} %m%n</property> -->
+<!-- 		<property name="patternFormatExt">%d{ISO8601} %-5p [${pid:all}|%-18.18t|%-4T] %c{1.}.%M:%L %m%n</property> -->
+		<property name="patternFormat">%d{ISO8601} %-5p [%-18.18t|%-4T] %logger{35} %m%n</property>
+	</Properties>
+
+
+	<Appenders>
+		<Console name="SysOut">
+			<!-- Layout with method and line -->
+			<PatternLayout>
+				<pattern>
+					${patternFormat}
+				</pattern>
+			</PatternLayout>
+		</Console>
+
+<!-- 		<RollingFile name="AppLog" fileName="${logDir}/${logFile}.log" -->
+<!-- 			filePattern="${logDir}/${logFile}-%d{dd-MM-yyyy}-%i.log"> -->
+<!-- 			<PatternLayout> -->
+<!-- 				<header> -->
+<!-- 					${headfoot:h}${sys:line.separator} -->
+<!-- 				</header> -->
+<!-- 				<footer> -->
+<!-- 					${sys:line.separator}${headfoot:f}${sys:line.separator} -->
+<!-- 				</footer> -->
+<!-- 				<pattern> -->
+<!-- 					${patternFormat} -->
+<!-- 				</pattern> -->
+<!-- 			</PatternLayout> -->
+<!-- 			<Policies> -->
+<!-- 				<TimeBasedTriggeringPolicy /> -->
+<!-- 				<SizeBasedTriggeringPolicy size="${fileSizeLimitMB} KB" /> -->
+<!-- 			</Policies> -->
+<!-- 			<DefaultRolloverStrategy fileIndex="min" -->
+<!-- 				max="${fileCount}" /> -->
+<!-- 		</RollingFile> -->
+	</Appenders>
+
+	<Loggers>
+		<root level="info">
+			<AppenderRef ref="SysOut" />
+<!-- 			<AppenderRef ref="AppLog" /> -->
+		</root>
+	</Loggers>
+
+</Configuration>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>io.sl.example</groupId>
+	<artifactId>sl-maven-ex-cassandra</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>sl-maven-ex-cassandra</name>
+	<description>Demo project for Spring Boot</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.1.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<spring.framework.version>5.0.6.RELEASE</spring.framework.version>
+		<java.version>1.7</java.version>
+		<maven.resource.plugin.version>3.0.2</maven.resource.plugin.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-cassandra</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jetty</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-cassandra</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	
+<!-- 	<build>
+		<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+				</plugin>
+				<plugin>
+					<groupId>io.sealights.on-premise.agents.plugin</groupId>
+					<artifactId>sealights-maven-plugin</artifactId>
+					<version>2.0.287</version>
+					<version>2.0.300</version>
+					<configuration>
+						<includeResources>true</includeResources>
+						<tokenFile>C:\SL\ENV\tokens\sl_token_ala.txt</tokenFile>
+						<tokenFile>C:\SL\ENV\tokens\sl_token_ala.txt</tokenFile>
+						<buildSessionId>b81b98f8ce739d3247e048c4cd777563</buildSessionId>
+						<buildSessionIdFile>buildSessionId.txt</buildSessionIdFile>
+						<appName>MavenSpringCassandraExample</appName>
+						<build>${sl.build}</build>
+						<branch>master</branch>
+						<createBuildSessionId>true</createBuildSessionId>
+						<moduleName>${project.name}</moduleName>
+						<workspacepath>${project.build.outputDirectory}</workspacepath>
+						<filesincluded>*.class</filesincluded>
+						<filesStorage>/tmp</filesStorage>
+						<packagesincluded>io.sl.ex.*</packagesincluded>
+						<filesexcluded>*test-classes*</filesexcluded>
+						<logEnabled>false</logEnabled>
+						<logLevel>info</logLevel>
+						<testStage>Unit Tests</testStage>
+						<enableUpgrade>true</enableUpgrade>
+						<baseSourceFolder>./src/main/java</baseSourceFolder>
+						This is for fiddler
+						<proxy>127.0.0.1:8888</proxy>
+						<server>http://54.154.181.128:8080/api</server>
+						<sendContributors>true</sendContributors>
+						<testListenerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-1.0.0-SNAPSHOT.jar</testListenerJar>
+						<buildScannerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-1.0.0-SNAPSHOT.jar</buildScannerJar>
+						<testListenerJar>C:\Users\ala schneider\Dev\Playground\sl-test-listener-1.9.790.jar</testListenerJar>
+						<buildScannerJar>C:\Users\ala schneider\Dev\Playground\sl-build-scanner-1.9.790.jar</buildScannerJar>
+						<metadata>
+						<jobName>${JOB_NAME}</jobName>
+						<logsUrl>${BUILD_URL}/console</logsUrl>
+						</metadata>
+					</configuration>
+					<executions>
+						<execution>
+							<id>a1</id>
+							<goals>
+								<goal>build-scanner</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>a2</id>
+							<goals>
+								<goal>test-listener</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+		</plugins>
+	</build>
+
+ -->
+<!-- 	<build> -->
+<!-- 		<pluginManagement> -->
+<!-- 			<plugins> -->
+
+<!-- 				<plugin> -->
+<!-- 					<groupId>org.springframework.boot</groupId> -->
+<!-- 					<artifactId>spring-boot-maven-plugin</artifactId> -->
+<!-- 				</plugin> -->
+				
+<!-- 				<plugin> -->
+<!-- 					<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 					<artifactId>maven-surefire-plugin</artifactId> -->
+<!-- 				</plugin> -->
+<!-- 				<plugin> -->
+<!-- 					<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 					<artifactId>maven-resources-plugin</artifactId> -->
+<!-- 					<version>${maven.resource.plugin.version}</version> -->
+<!-- 				</plugin> -->
+				
+<!-- 			</plugins> -->
+<!-- 		</pluginManagement> -->
+
+<!-- 	</build> -->
+
+	<profiles>
+		<profile>
+			<id>default</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+				
+<!-- 				<plugin> -->
+<!-- 					<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 					<artifactId>maven-surefire-plugin</artifactId> -->
+<!-- 				</plugin> -->
+<!-- 				<plugin> -->
+<!-- 					<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 					<artifactId>maven-resources-plugin</artifactId> -->
+<!-- 					<version>${maven.resource.plugin.version}</version> -->
+<!-- 				</plugin> -->
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>sl</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+				
+<!-- 				<plugin> -->
+<!-- 					<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 					<artifactId>maven-surefire-plugin</artifactId> -->
+<!-- 					<version>2.19.1</version> -->
+<!-- 				</plugin> -->
+<!-- 				<plugin> -->
+<!-- 					<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 					<artifactId>maven-resources-plugin</artifactId> -->
+<!-- 					<version>${maven.resource.plugin.version}</version> -->
+<!-- 				</plugin> -->
+				<plugin>
+					<groupId>io.sealights.on-premise.agents.plugin</groupId>
+					<artifactId>sealights-maven-plugin</artifactId>
+					<!-- <version>2.0.287</version> -->
+					<version>2.0.0</version>
+					<configuration>
+						<includeResources>true</includeResources>
+						<tokenFile>C:\SL\ENV\tokens\sl_token_ala.txt</tokenFile>
+						<!-- <tokenFile>C:\SL\ENV\tokens\sl_token_ala.txt</tokenFile> -->
+						<!--<buildSessionId>b81b98f8ce739d3247e048c4cd777563</buildSessionId> -->
+						<!--<buildSessionIdFile>buildSessionId.txt</buildSessionIdFile> -->
+						<appName>MavenSpringCassandraExample</appName>
+						<build>${sl.build}</build>
+						<branch>master</branch>
+						<createBuildSessionId>true</createBuildSessionId>
+						<moduleName>${project.name}</moduleName>
+						<workspacepath>${project.build.outputDirectory}</workspacepath>
+						<filesincluded>*.class</filesincluded>
+						<filesStorage>/tmp</filesStorage>
+						<packagesincluded>io.sl.ex.*</packagesincluded>
+						<filesexcluded>*test-classes*</filesexcluded>
+						<logEnabled>false</logEnabled>
+						<logLevel>info</logLevel>
+						<testStage>Unit Tests</testStage>
+						<enableUpgrade>true</enableUpgrade>
+						<!--<baseSourceFolder>./src/main/java</baseSourceFolder> -->
+						<!-- This is for fiddler -->
+						<!--<proxy>127.0.0.1:8888</proxy> -->
+						<!--<server>http://54.154.181.128:8080/api</server> -->
+						<!--<sendContributors>true</sendContributors> -->
+						<testListenerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-1.0.0-SNAPSHOT.jar</testListenerJar>
+						<buildScannerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-1.0.0-SNAPSHOT.jar</buildScannerJar>
+						<!--<testListenerJar>C:\Users\ala schneider\Dev\Playground\sl-test-listener-1.9.790.jar</testListenerJar> -->
+						<!--<buildScannerJar>C:\Users\ala schneider\Dev\Playground\sl-build-scanner-1.9.790.jar</buildScannerJar> -->
+						<!-- <metadata> -->
+						<!-- <jobName>${JOB_NAME}</jobName> -->
+						<!-- <logsUrl>${BUILD_URL}/console</logsUrl> -->
+						<!-- </metadata> -->
+					</configuration>
+					<executions>
+						<execution>
+							<id>a1</id>
+							<goals>
+								<goal>build-scanner</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>a2</id>
+							<goals>
+								<goal>test-listener</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+
+</project>

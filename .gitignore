@@ -1,0 +1,88 @@
+# Eclipse 
+.classpath
+.project
+.settings/
+
+# Maven
+log/
+target/
+
+# Package Files #
+#*.jar
+*.war
+*.ear
+
+
+#logs
+java-agent
+*.log
+*.log-*
+
+# Other
+*.class
+*.orig
+
+*.html
+*.css
+*.gif
+
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+
+
+output/
+
+.idea/
+*.iml
+*.iws
+
+#Exclude the local-maven-repo
+/local-maven-repo
+
+#jacoco
+*.exec
+
+test-output/
+
+#gradle files
+!gradle/wrapper/*jar
+.gradle/
+build/
+
+#other
+buildSessionId.txt
+sealights-config.properties
+
+#copied from ex-cassandra
+.mvn
+#!.mvn/wrapper/maven-wrapper.jar
+mvnw*
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
