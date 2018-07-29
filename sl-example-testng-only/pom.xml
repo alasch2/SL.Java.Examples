@@ -71,7 +71,7 @@
 					<groupId>io.sealights.on-premise.agents.plugin</groupId>
 					<artifactId>sealights-maven-plugin</artifactId>
 					<configuration>
-						<appName>MavenExampleTestNGOnly</appName>
+						<appName>SL-Maven-ExampleTestNGOnly</appName>
 <!-- 						<logEnabled>false</logEnabled> -->
 						<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>
 						<classLoadersExcluded>no</classLoadersExcluded>

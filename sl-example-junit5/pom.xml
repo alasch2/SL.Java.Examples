@@ -126,7 +126,7 @@
 				<artifactId>sealights-maven-plugin</artifactId>
 				<version>2.0.237</version>
 				<configuration>
-					<appName>MavenExampleJunit5</appName>
+					<appName>SL-Maven-ExampleJunit5</appName>
 					<packagesincluded>com.example.project*</packagesincluded>
 					<sealightsJvmParams>
 						<sl.junitVersion>5</sl.junitVersion>

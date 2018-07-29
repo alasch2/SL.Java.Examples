@@ -66,7 +66,7 @@
 					<groupId>io.sealights.on-premise.agents.plugin</groupId>
 					<artifactId>sealights-maven-plugin</artifactId>
 					<configuration>
-						<appName>MavenExampleJUnitOnly</appName>
+						<appName>SL-Maven-ExampleJUnitOnly</appName>
 						<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>
 						<!-- <logEnabled>false</logEnabled> -->
 						<logToConsole>true</logToConsole>

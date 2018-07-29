@@ -214,7 +214,7 @@
 						<!-- <tokenFile>C:\SL\ENV\tokens\sl_token_ala.txt</tokenFile> -->
 						<!--<buildSessionId>b81b98f8ce739d3247e048c4cd777563</buildSessionId> -->
 						<!--<buildSessionIdFile>buildSessionId.txt</buildSessionIdFile> -->
-						<appName>MavenSpringCassandraExample</appName>
+						<appName>SL-Maven-SpringCassandraExample</appName>
 						<build>${sl.build}</build>
 						<branch>master</branch>
 						<createBuildSessionId>true</createBuildSessionId>

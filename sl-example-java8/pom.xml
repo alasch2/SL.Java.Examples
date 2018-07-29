@@ -62,7 +62,7 @@
 				<groupId>io.sealights.on-premise.agents.plugin</groupId>
 				<artifactId>sealights-maven-plugin</artifactId>
 				<configuration>
-					<appName>MavenExampleJava8</appName>
+					<appName>SL-Maven-ExampleJava8</appName>
 <!-- 						<packagesincluded>io.sl.maven.ex.*</packagesincluded> -->
 				</configuration>
 			</plugin>

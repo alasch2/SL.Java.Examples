@@ -316,7 +316,7 @@
 						<artifactId>sealights-maven-plugin</artifactId>
 						<!-- using different application name and packages -->
 						<configuration>
-							<appName>AllMavenExamples</appName>
+							<appName>SL-Maven-AllExamples</appName>
 							<!-- <appName>AllMavenExamples-Linux</appName> -->
 						</configuration>
 					</plugin>
