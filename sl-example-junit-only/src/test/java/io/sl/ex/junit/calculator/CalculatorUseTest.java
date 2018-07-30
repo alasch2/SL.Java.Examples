@@ -1,6 +1,6 @@
 package io.sl.ex.junit.calculator;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,4 +22,11 @@ public class CalculatorUseTest {
 		assertTrue(mgr.calcSub(1, 1) == 0);
 	}
 
+	@Test
+	public void testCalcSub_shouldFailed() {
+		System.out.println("----------------See this 'testCalcSub_failed' is running .........");
+		System.out.println("Current class loader:" + getClass().getClassLoader().toString());
+		CalculatorUse mgr = new CalculatorUse();
+		assertFalse(mgr.calcSub(1, 1) == 0);
+	}
 }

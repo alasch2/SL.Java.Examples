@@ -2,7 +2,7 @@ package io.sl.ex.junit.calculator;
 
 public class CalculatorUse {
 	
-	private Calculator calc;
+	protected Calculator calc;
 	
 	public CalculatorUse() {
 		calc = CalculatorFactory.createCalculator();
