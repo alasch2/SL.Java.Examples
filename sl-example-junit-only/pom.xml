@@ -14,9 +14,9 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<!-- The property demands active debug session in Inteliji -->
-		<!-- <sldebug>${sldebugOn}</sldebug> -->
-		<sldebug> </sldebug>
+		<!-- The property demands active debug session in InteliJ -->
+		<sldebug>${sldebugOn}</sldebug>
+<!-- 		<sldebug> </sldebug> -->
 		<!-- Enforcement of power mock agent - not needed in the current tests, just for memo -->
 <!-- 		<powermock.agent.arg>-javaagent:'C:\Users\ala schneider\Dev\CI.JavaExamples\powermock-module-javaagent-1.7.1.jar'</powermock.agent.arg> -->
 	</properties>
@@ -70,7 +70,7 @@
 						<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>
 						<!-- <logEnabled>false</logEnabled> -->
 						<logToConsole>true</logToConsole>
-						<logLevel>info</logLevel>
+						<logLevel>debug</logLevel>
 						<classLoadersExcluded>no</classLoadersExcluded>
 						<filesexcluded>none</filesexcluded>
 						<sealightsJvmParams>

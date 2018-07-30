@@ -28,7 +28,7 @@
 		<!-- <maven.compiler.target>1.7</maven.compiler.target> -->
 		<!-- <maven.jar.plugin.version>2.4</maven.jar.plugin.version> -->
 		<maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
-		<maven.surefire.plugin.version>2.20.1</maven.surefire.plugin.version>
+		<maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
 		<!-- The development version  -->
 		<!-- sealights.plugin.version>2.0.0</sealights.plugin.version> -->
 		<!-- Recent version  -->
@@ -42,7 +42,7 @@
 		<!-- debugging stuff -->
 <!--         <sealights.skip>true</sealights.skip> -->
         <sldebugOn>-agentlib:jdwp=transport=dt_socket,server=n,address=DESKTOP-FC1M245:5005,suspend=y</sldebugOn>
-        <sealightsArgLine> </sealightsArgLine>
+<!--         <sealightsArgLine> </sealightsArgLine> -->
         <sldebugOff> </sldebugOff>
         <sldebug>${sldebugOff}</sldebug>
         <!-- Set this for debugging of test listener-->
