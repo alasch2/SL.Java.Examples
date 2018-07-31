@@ -15,8 +15,8 @@
 
 	<properties>
 		<!-- The property demands active debug session in InteliJ -->
-		<sldebug>${sldebugOn}</sldebug>
-<!-- 		<sldebug> </sldebug> -->
+<!-- 		<sldebug>${sldebugOn}</sldebug> -->
+		<sldebug> </sldebug>
 		<!-- Enforcement of power mock agent - not needed in the current tests, just for memo -->
 <!-- 		<powermock.agent.arg>-javaagent:'C:\Users\ala schneider\Dev\CI.JavaExamples\powermock-module-javaagent-1.7.1.jar'</powermock.agent.arg> -->
 	</properties>
