@@ -21,9 +21,8 @@ public class CalculatorUse2TestSpyErrorTest {
 	}
 
 	@Test
-	public void testCalcSub_shouldFaileDueToInvalidSpy() {
-		System.out.println("----------------See this 'testCalcSub_realObjects_spyProblem' is running .........");
-		System.out.println("Current class loader:" + getClass().getClassLoader().toString());
+	public void testCalcSub_shouldFailDueToInvalidSpy() {
+		System.out.println("----------------'testCalcSub_shouldFailDueToInvalidSpy' is running .........");
 		assertTrue(calcUse2.calcSub(1, 1) == 0);
 	}
 

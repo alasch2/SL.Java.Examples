@@ -56,7 +56,7 @@
     	<module>sl-example-junit5</module>
 <!--     	<module>sl-example-cassandra</module> -->
   		<module>sl-example-testng-only</module>
-  		<module>sl-example-junit4-failures</module>
+  		<module>sl-example-junit4-testng-failures</module>
 	</modules>
 	
 	<dependencies>

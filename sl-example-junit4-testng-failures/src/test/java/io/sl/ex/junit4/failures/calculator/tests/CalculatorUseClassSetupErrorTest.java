@@ -15,9 +15,8 @@ public class CalculatorUseClassSetupErrorTest {
 	}
 
 	@Test
-	public void testCalcSub_shouldFaileDueToClassSetupException() {
-		System.out.println("----------------See this 'testCalcSub_realObjects_classSetupException' is running .........");
-		System.out.println("Current class loader:" + getClass().getClassLoader().toString());
+	public void testCalcSub_shouldFailDueToClassSetupException() {
+		System.out.println("---------------- 'testCalcSub_shouldFailDueToClassSetupException' is running .........");
 		CalculatorUse mgr = new CalculatorUse();
 		assertTrue(mgr.calcSub(1, 1) == 0);
 	}
