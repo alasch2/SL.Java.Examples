@@ -106,6 +106,9 @@
 				<artifactId>sealights-maven-plugin</artifactId>
 				<configuration>
 					<appName>MavenExampleJunit5</appName>
+					<logEnabled>true</logEnabled>
+					<logToConsole>true</logToConsole>
+					<logToFile>true</logToFile>
 					<sealightsJvmParams>
 						<sl.junitVersion>5</sl.junitVersion>
 					</sealightsJvmParams>
@@ -115,69 +118,5 @@
 			
 		</plugins>
 	</build>
-	
-<profiles>
-	<profile>
-		<id>memo</id>
-		<build>
-			<plugins>
-			<plugin>
-				<groupId>io.sealights.on-premise.agents.plugin</groupId>
-				<artifactId>sealights-maven-plugin</artifactId>
-				<version>2.0.237</version>
-				<configuration>
-					<appName>SL-Maven-ExampleJunit5</appName>
-					<packagesincluded>com.example.project*</packagesincluded>
-					<sealightsJvmParams>
-						<sl.junitVersion>5</sl.junitVersion>
-					</sealightsJvmParams>
-					<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>
-					
-					<!-- jjj -->
-						<includeResources>true</includeResources>
-						<tokenFile>C:\SL\ENV\tokens\sl_token_ala.txt</tokenFile>
-						<build>${sl.build}</build>
-						<branch>master</branch>
-						<createBuildSessionId>true</createBuildSessionId>
-						<moduleName>${project.name}</moduleName>
-						<workspacepath>${project.build.outputDirectory}</workspacepath>
-						<filesincluded>*.class</filesincluded>
-						<filesStorage>/tmp</filesStorage>
-						<filesexcluded>*test-classes*</filesexcluded>
-						<logEnabled>true</logEnabled>
-						<logLevel>info</logLevel>
-						<testStage>Unit Tests</testStage>
-						<sendContributors>true</sendContributors>
-						<testListenerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-1.0.0-SNAPSHOT.jar</testListenerJar>
-						<buildScannerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-1.0.0-SNAPSHOT.jar</buildScannerJar>
-					<!-- jjj -->
-				</configuration>
-					<!-- jjj -->
-					<executions>
-						<execution>
-							<id>a1</id>
-							<goals>
-								<goal>build-scanner</goal>
-							</goals>
-						</execution>
-						<execution>
-							<id>a2</id>
-							<goals>
-								<goal>test-listener</goal>
-							</goals>
-						</execution>
-						<execution>
-							<id>a3</id>
-							<goals>
-								<goal>prepare-test-listener</goal>
-							</goals>
-						</execution>
-					</executions>
-					<!-- jjj -->
-			</plugin>
-			</plugins>
-		</build>
-	</profile>
-</profiles>
 	
 </project>

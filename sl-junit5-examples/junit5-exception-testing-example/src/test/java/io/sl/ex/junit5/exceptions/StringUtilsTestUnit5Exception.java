@@ -1,0 +1,42 @@
+package io.sl.ex.junit5.exceptions;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
+import org.junit.jupiter.api.Test;
+
+import io.sl.ex.junit5.exceptions.StringUtils;
+
+public class StringUtilsTestUnit5Exception {
+
+
+  @Test
+  public void convertToIntNullParameterAssertThrows() {
+    String st = null;
+    assertThrows(IllegalArgumentException.class, () -> {
+      StringUtils.convertToInt(st);
+    });
+
+  }
+
+  @Test
+  public void convertToIntNullParameterExpectThrows() {
+    String st = null;
+    Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+      StringUtils.convertToInt(st);
+    });
+    assertEquals("String must be not null or empty", exception.getMessage());
+  }
+
+  @Test
+  public void convertToIntNullParameterTryCatchIdiom() {
+    String st = null;
+    try {
+      StringUtils.convertToInt(st);
+      fail("Expected an IllegalArgumentException to be thrown");
+    } catch (IllegalArgumentException e) {
+      assertEquals("String must be not null or empty", e.getMessage());
+    }
+  }
+
+}

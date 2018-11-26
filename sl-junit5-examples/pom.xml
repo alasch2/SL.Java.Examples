@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>io.sealights.examples</groupId>
+	<artifactId>sl-junit5-examples</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- Dependencies versions -->
+		<lombok.version>1.16.16</lombok.version>
+        <logback.version>1.2.3</logback.version>
+        <slf4j.version>1.7.25</slf4j.version>
+		<java.version>1.8</java.version>
+		<junit.version>4.12</junit.version>
+		<junit.jupiter.version>5.1.0</junit.jupiter.version>
+		<junit.platform.version>1.1.0</junit.platform.version>
+		<mockito.version>1.10.19</mockito.version>
+		
+		<!-- Plugins versions -->
+		<!-- <maven.compiler.source>1.7</maven.compiler.source> -->
+		<!-- <maven.compiler.target>1.7</maven.compiler.target> -->
+		<!-- <maven.jar.plugin.version>2.4</maven.jar.plugin.version> -->
+		<maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
+		<maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
+<!-- 		<maven.surefire.plugin.version>2.21.0</maven.surefire.plugin.version> -->
+		<!-- The development version  -->
+		<sealights.plugin.version>2.1.0-SNAPSHOT</sealights.plugin.version>
+		<!-- Recent version  -->
+		<!-- <sealights.plugin.version>2.1.374</sealights.plugin.version> -->
+		
+		<!-- debugging stuff -->
+<!--         <sealights.skip>true</sealights.skip> -->
+        <sldebugOn>-agentlib:jdwp=transport=dt_socket,server=n,address=DESKTOP-FC1M245:5005,suspend=y</sldebugOn>
+        <sldebugOff> </sldebugOff>
+        <sldebug>${sldebugOff}</sldebug>
+        <!-- Set this for debugging of test listener-->
+<!--         <sldebug>${sldebugOn}</sldebug> -->
+	</properties>
+
+	<modules>
+		<!-- <module>junit5-assertions-example</module> -->
+		<module>junit5-assumptions-example</module>
+		<module>junit5-disable-test-example</module>
+		<module>junit5-exception-testing-example</module>
+ 		<module>junit5-maven-example</module>
+		<module>junit5-maven-jacoco-example</module>
+		<module>junit5-mockito-example</module>
+    	<module>junit5-nested-test-example</module>
+  		<module>junit5-parameter-resolution-example</module>
+		<module>junit5-tag-filter-example</module>
+		<module>junit5-test-suite-example</module>
+		<module>junit5-timeout-example</module>
+	</modules>
+	
+	<dependencies>
+		<!--  Logback Logging -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+              <version>${logback.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+		
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.junit.vintage</groupId>
+			<artifactId>junit-vintage-engine</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- Only required to run tests in an IDE that bundles an older version -->
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-launcher</artifactId>
+			<version>${junit.platform.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.junit.platform</groupId>
+		    <artifactId>junit-platform-runner</artifactId>
+		    <version>${junit.platform.version}</version>
+		    <scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	
+		<pluginManagement>
+			<plugins>
+
+		        <plugin>
+		            <groupId>org.apache.maven.plugins</groupId>
+		            <artifactId>maven-surefire-plugin</artifactId>
+		            <version>${maven.surefire.plugin.version}</version>
+		            <configuration>
+	            		<!-- <argLine>-Xmx1024m ${argLine}</argLine> -->
+						<!-- <forkedProcessTimeoutInSeconds>120</forkedProcessTimeoutInSeconds> -->
+						<!-- <shutdown>exit</shutdown> -->
+		            </configuration>
+					<dependencies>
+						<dependency>
+							<groupId>org.junit.platform</groupId>
+							<artifactId>junit-platform-surefire-provider</artifactId>
+							<version>${junit.platform.version}</version>
+						</dependency>
+					</dependencies>
+	            </plugin>
+	            
+				<plugin>
+					<groupId>io.sealights.on-premise.agents.plugin</groupId>
+					<artifactId>sealights-maven-plugin</artifactId>
+					<version>${sealights.plugin.version}</version>
+					<configuration>
+						<appName>SL-Maven-Junit5-Examples</appName>
+						<includeResources>true</includeResources>
+						<!--Path to valid token should be set-->
+						<!--<tokenFile>path/to/token</tokenFile>-->
+						<tokenFile>C:\SL\ENV\tokens\sl-agents-token.txt</tokenFile>
+						<!-- Linux env -->
+						<!--<tokenFile>sl_ala1_token.txt</tokenFile>-->
+						<build>${sl.build}</build>
+						<branch>master</branch>
+						<createBuildSessionId>true</createBuildSessionId>
+						<moduleName>${project.name}</moduleName>
+						<workspacepath>${project.build.outputDirectory}</workspacepath>
+						<filesincluded>*.class</filesincluded>
+						<filesStorage>/tmp</filesStorage>
+						<packagesincluded>io.sl.ex.*</packagesincluded>
+						<filesexcluded>*test-classes*</filesexcluded>
+						<!-- <logEnabled>true</logEnabled> -->
+						<logLevel>info</logLevel>
+						<logToConsole>false</logToConsole>
+						<logToFile>false</logToFile>
+						<testStage>Unit Tests</testStage>
+						<!-- <buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled> -->
+						<!-- <testListenerIgnoreLogEnabled>true</testListenerIgnoreLogEnabled> -->
+						<!-- <enableUpgrade>true</enableUpgrade> -->
+						<!-- This is for fiddler -->
+<!-- 						<proxy>127.0.0.1:8888</proxy> -->
+						<!--<server>http://54.154.181.128:8080/api</server> -->
+						<sendContributors>true</sendContributors>
+						<testListenerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-2.0.0-SNAPSHOT.jar</testListenerJar>
+						<buildScannerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-2.0.0-SNAPSHOT.jar</buildScannerJar>
+
+ 						<!-- Linux env -->
+<!-- 		            <buildScannerJar>../SL.OnPremise.Agents.Java/java-build-agent/target/java-build-agent-2.0.0-SNAPSHOT.jar</buildScannerJar>
+		                <testListenerJar>../SL.OnPremise.Agents.Java/java-agent-bootstrapper/target/java-agent-bootstrapper-2.0.0-SNAPSHOT.jar</testListenerJar>
+ --> 
+ 						<sealightsJvmParams>
+							<!-- <sl.scm.baseUrl>https://github.com/alasch2/MavenExample/</sl.scm.baseUrl> -->
+							<!-- <sl.scm>none</sl.scm> -->
+							<!-- <sl.scm.provider>github</sl.scm.provider> -->
+							<!-- <sl.scm.version>4.6</sl.scm.version> -->
+							<sl.featuresData.reportOnGettersAndSetters>false</sl.featuresData.reportOnGettersAndSetters>
+							<sl.featuresData.reportOnConstructors>false</sl.featuresData.reportOnConstructors>
+							<sl.featuresData.sendPartialFootprints>false</sl.featuresData.sendPartialFootprints>
+							<!-- <sl.ignoreCertificateErrors>true</sl.ignoreCertificateErrors> -->
+							<sl.httpClientClass>io.sealights.onpremise.agents.java.agent.infra.http.client.SLApacheHttpClient</sl.httpClientClass>
+							<sl.httpMaxAttempts>1</sl.httpMaxAttempts>
+							<sl.junitVersion>5</sl.junitVersion>
+						</sealightsJvmParams>
+						<classLoadersExcluded>no</classLoadersExcluded>
+					</configuration>
+					<executions>
+						<execution>
+							<id>a1</id>
+							<goals>
+								<goal>build-scanner</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>a2</id>
+							<goals>
+								<goal>test-listener</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>a3</id>
+							<goals>
+								<goal>prepare-test-listener</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
+	</build>
+	
+	<profiles>
+		<profile>
+		<id>default</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+			        <plugin>
+			            <groupId>org.apache.maven.plugins</groupId>
+			            <artifactId>maven-surefire-plugin</artifactId>
+			            <version>${maven.surefire.plugin.version}</version>
+		            </plugin>
+					<plugin>
+						<groupId>io.sealights.on-premise.agents.plugin</groupId>
+						<artifactId>sealights-maven-plugin</artifactId>
+						<!-- Plugin is not executed -->
+						<executions>
+							<execution>
+								<id>a1</id>
+								<phase>none</phase>
+							</execution>
+							<execution>
+								<id>a2</id>
+								<phase>none</phase>
+							</execution>
+							<execution>
+								<id>a3</id>
+								<phase>none</phase>
+							</execution>
+						</executions>						
+					</plugin>
+					
+				</plugins>
+			</build>
+		</profile>
+		
+		<profile>
+			<id>sl-test</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					
+			        <plugin>
+			            <groupId>org.apache.maven.plugins</groupId>
+			            <artifactId>maven-surefire-plugin</artifactId>
+			            <!-- <configuration> -->
+			            	<!-- <argLine>${sldebug} ${argLine}</argLine> -->
+			            <!-- </configuration> -->
+			        </plugin>
+					<plugin>
+						<groupId>io.sealights.on-premise.agents.plugin</groupId>
+						<artifactId>sealights-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<!-- No build-scanner -->
+								<id>a1</id>
+								<phase>none</phase>
+							</execution>
+<!-- 							<execution>
+								<id>a2</id>
+								<phase>none</phase>
+							</execution>
+							<execution>
+								<id>a3</id>
+								<phase>none</phase>
+							</execution>
+ -->						</executions>						
+					</plugin>
+	        
+				</plugins>
+			</build>
+		</profile>
+		
+		<profile>
+			<id>sl</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>io.sealights.on-premise.agents.plugin</groupId>
+						<artifactId>sealights-maven-plugin</artifactId>
+					</plugin>
+					
+			        <plugin>
+			            <groupId>org.apache.maven.plugins</groupId>
+			            <artifactId>maven-surefire-plugin</artifactId>
+			            <!-- <configuration> -->
+			            	<!-- <argLine>${sldebug} ${argLine}</argLine> -->
+			            <!-- </configuration> -->
+			        </plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>http://repo1.maven.org/maven2</url>
+			<!-- <url>http://fake.url.org/maven2</url> -->
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<url>http://repo1.maven.org/maven2</url>
+		</pluginRepository>	
+<!-- 		<pluginRepository>
+			<id>sealights-internal</id>
+			<url>http://nex.sealights.co:8081/repository/sealights-internal</url>
+		</pluginRepository>
+ -->  
+	</pluginRepositories>
+
+</project>

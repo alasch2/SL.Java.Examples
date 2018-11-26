@@ -14,9 +14,10 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- The property demands active debug session in InteliJ -->
-<!-- 		<sldebug>${sldebugOn}</sldebug> -->
-		<sldebug> </sldebug>
+		<!-- <sldebug>${sldebugOn}</sldebug> -->
+		<!-- <sldebug> </sldebug> -->
 		<!-- Enforcement of power mock agent - not needed in the current tests, just for memo -->
 <!-- 		<powermock.agent.arg>-javaagent:'C:\Users\ala schneider\Dev\CI.JavaExamples\powermock-module-javaagent-1.7.1.jar'</powermock.agent.arg> -->
 	</properties>
@@ -67,16 +68,28 @@
 					<artifactId>sealights-maven-plugin</artifactId>
 					<configuration>
 						<appName>SL-Maven-ExampleJUnitOnly</appName>
-						<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>
-						<!-- <logEnabled>false</logEnabled> -->
+						<logEnabled>true</logEnabled>
 						<logToConsole>true</logToConsole>
-						<logLevel>debug</logLevel>
+						<logToFile>true</logToFile>
+						<logLevel>info</logLevel>
+						<!-- <buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled> -->
+						<!-- <testListenerIgnoreLogEnabled>true</testListenerIgnoreLogEnabled> -->
 						<classLoadersExcluded>no</classLoadersExcluded>
+						<!-- <classLoadersExcluded>*MockClassLoader*</classLoadersExcluded> -->
 						<filesexcluded>none</filesexcluded>
+						<!-- <proxy>alash:ezPass123@54.246.193.96:5476</proxy> -->
+						<!-- <proxy>http://localhost:8888</proxy> -->
+						<!-- <buildScannerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-2.0.0-SNAPSHOT.jar</buildScannerJar> -->
 						<sealightsJvmParams>
 							<sl.featuresData.sendPartialFootprints>true</sl.featuresData.sendPartialFootprints>
 							<sl.featuresData.shutdownOnSurefireExit>true</sl.featuresData.shutdownOnSurefireExit>
+							<!-- <sl.agentPingSec>0</sl.agentPingSec> -->
+							<sl.ignoreCertificateErrors>true</sl.ignoreCertificateErrors>
+							<!-- <sl.httpDebugLog>org.apache.http.impl.conn</sl.httpDebugLog> -->
+							<!-- <sl.useApacheClient>true</sl.useApacheClient> -->
+							<!-- <javax.net.debug>ssl</javax.net.debug> -->
 						</sealightsJvmParams>
+						<fake>fake parameter</fake>
 					</configuration>
 				</plugin>	        
 		<!-- Enforcement of power mock agent - not needed in the current tests, just for memo -->

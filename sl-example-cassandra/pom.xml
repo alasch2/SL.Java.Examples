@@ -99,13 +99,12 @@
 						<logLevel>info</logLevel>
 						<testStage>Unit Tests</testStage>
 						<enableUpgrade>true</enableUpgrade>
-						<baseSourceFolder>./src/main/java</baseSourceFolder>
 						This is for fiddler
 						<proxy>127.0.0.1:8888</proxy>
 						<server>http://54.154.181.128:8080/api</server>
 						<sendContributors>true</sendContributors>
-						<testListenerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-1.0.0-SNAPSHOT.jar</testListenerJar>
-						<buildScannerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-1.0.0-SNAPSHOT.jar</buildScannerJar>
+						<testListenerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-2.0.0-SNAPSHOT.jar</testListenerJar>
+						<buildScannerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-2.0.0-SNAPSHOT.jar</buildScannerJar>
 						<testListenerJar>C:\Users\ala schneider\Dev\Playground\sl-test-listener-1.9.790.jar</testListenerJar>
 						<buildScannerJar>C:\Users\ala schneider\Dev\Playground\sl-build-scanner-1.9.790.jar</buildScannerJar>
 						<metadata>
@@ -228,13 +227,12 @@
 						<logLevel>info</logLevel>
 						<testStage>Unit Tests</testStage>
 						<enableUpgrade>true</enableUpgrade>
-						<!--<baseSourceFolder>./src/main/java</baseSourceFolder> -->
 						<!-- This is for fiddler -->
 						<!--<proxy>127.0.0.1:8888</proxy> -->
 						<!--<server>http://54.154.181.128:8080/api</server> -->
 						<!--<sendContributors>true</sendContributors> -->
-						<testListenerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-1.0.0-SNAPSHOT.jar</testListenerJar>
-						<buildScannerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-1.0.0-SNAPSHOT.jar</buildScannerJar>
+						<testListenerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-2.0.0-SNAPSHOT.jar</testListenerJar>
+						<buildScannerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-2.0.0-SNAPSHOT.jar</buildScannerJar>
 						<!--<testListenerJar>C:\Users\ala schneider\Dev\Playground\sl-test-listener-1.9.790.jar</testListenerJar> -->
 						<!--<buildScannerJar>C:\Users\ala schneider\Dev\Playground\sl-build-scanner-1.9.790.jar</buildScannerJar> -->
 						<!-- <metadata> -->

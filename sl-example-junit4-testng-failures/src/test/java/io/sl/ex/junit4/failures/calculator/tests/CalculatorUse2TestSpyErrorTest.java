@@ -13,6 +13,8 @@ import io.sl.ex.junit4.failures.calculator.CalculatorUse2;
 @RunWith(MockitoJUnitRunner.class)
 public class CalculatorUse2TestSpyErrorTest {
 	
+	// This spy cannot work, since Spy annotation demands default constructor
+	// Test initialization fails and test is neither run nor considered in surefire reports
 	@Spy 
 	CalculatorUse2 calcUse2;
 

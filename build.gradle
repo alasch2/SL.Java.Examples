@@ -39,6 +39,7 @@ dependencies {
 
 buildscript {
     repositories {
+        mavenLocal()
         mavenCentral()
         maven {
             credentials {
@@ -47,12 +48,12 @@ buildscript {
             }
             url "http://nex.sealights.co:8081/repository/sealights-internal"
         }
-        mavenLocal()
+        // maven { url uri("C:/Users/ala schneider/.m2/repository") }
     }
     dependencies {
-        // classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:2.0.0-SNAPSHOT'
-        //classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:2.0.45'
-        classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:latest.release'
+        classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:2.1.0'
+        // classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:2.1.209'
+        // classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:latest.release'
     }
 }
 
@@ -60,19 +61,21 @@ buildscript {
  * This is executed for any build when the 'sl' option is provided
  */
 
+
 subprojects {
+//projects { - with this value plugin is not applied to subprojects 
     if (project.hasProperty('sl')) {
         apply plugin: 'io.sealights.on-premise.agents.plugin.sealights-gradle-plugin'
 
         sealights {
             includeResources = true
             //tokenFile = path/to/token
-            tokenFile = "C:/SL/ENV/tokens/sl_token_ala.txt"
+            tokenFile = "C:/SL/ENV/tokens/sl-agents-token.txt"
             //workspacepath=${sourceSets.main.output.classesDir}
             // workspacepath=System.getProperty('ws')
             // tokenFile = "/mnt/c/SL/ENV/tokens/sl_token_ala.txt"
             //buildSessionIdFile = "buildSessionId.txt"
-            logEnabled = true
+            logEnabled = false
             logLevel = "info"
             logToFile = true
             logToConsole = true
@@ -88,11 +91,14 @@ subprojects {
             // buildScannerIgnoreLogEnabled=true
             // testListenerIgnoreLogEnabled=true
             // testStage = "ut1"
-//             testListenerJar = "C:/Users/ala schneider/Dev/SL.OnPremise.Agents.Java/java-agent-bootstrapper/target/java-agent-bootstrapper-1.0.0-SNAPSHOT.jar"
-//             buildScannerJar = "C:/Users/ala schneider/Dev/SL.OnPremise.Agents.Java/java-build-agent/target/java-build-agent-1.0.0-SNAPSHOT.jar"
+            testListenerJar = "C:/Users/ala schneider/Dev/SL.OnPremise.Agents.Java/java-agent-bootstrapper/target/java-agent-bootstrapper-2.0.0-SNAPSHOT.jar"
+            buildScannerJar = "C:/Users/ala schneider/Dev/SL.OnPremise.Agents.Java/java-build-agent/target/java-build-agent-2.0.0-SNAPSHOT.jar"
+            // buildScannerJar ="C:/Users/ala schneider/Dev/Playground/sl-build-scanner-2.0.977.jar"
+            // sealightsJvmParams=["sl.ignoreCertificateErrors":"true"]
             // The test tasks names for applying the test listener
             // If not provided, the default tasks are assigned like in commented value
             //testTasks=["test", "junitPlatformTest", "integrationTest"]
+            // runTestOnly = true
         }
 
         println "Assigned the default appName = $sealights.appName"

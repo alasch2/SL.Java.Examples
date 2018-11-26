@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>io.sealights.examples</groupId>
+		<artifactId>sl-maven-examples-container</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>sl-example-dynamic-class-load</artifactId>
+	<name>sl-example-dynamic-class-load</name>
+	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.7</java.version>
+	</properties>
+	
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	
+	<build>
+	
+		<plugins>
+		
+				<plugin>
+					<groupId>io.sealights.on-premise.agents.plugin</groupId>
+					<artifactId>sealights-maven-plugin</artifactId>
+					<configuration>
+						<appName>SL-Maven-ExampleCustomClassLoaders</appName>
+						<logEnabled>false</logEnabled>
+						<logToConsole>true</logToConsole>
+						<logToFile>true</logToFile>
+						<logLevel>info</logLevel>
+						<!-- <buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled> -->
+						<!-- <testListenerIgnoreLogEnabled>true</testListenerIgnoreLogEnabled> -->
+						<classLoadersExcluded>no</classLoadersExcluded>
+						<!-- <classLoadersExcluded>*MockClassLoader*</classLoadersExcluded> -->
+						<filesexcluded>none</filesexcluded>
+						<sealightsJvmParams>
+							<sl.featuresData.sendPartialFootprints>true</sl.featuresData.sendPartialFootprints>
+							<sl.featuresData.shutdownOnSurefireExit>true</sl.featuresData.shutdownOnSurefireExit>
+							<!-- <sl.ignoreCertificateErrors>true</sl.ignoreCertificateErrors> -->
+							<!-- <sl.httpDebugLog>org.apache.http.impl.conn</sl.httpDebugLog> -->
+							<!-- <sl.useApacheClient>true</sl.useApacheClient> -->
+							<!-- <javax.net.debug>ssl</javax.net.debug> -->
+						</sealightsJvmParams>
+					</configuration>
+				</plugin>	        
+		
+		
+			<!-- ========================= -->
+			<!-- Compiler plug-in -->
+			<!-- ========================= -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+			
+		</plugins>
+		
+	</build>
+</project>
+

@@ -39,8 +39,16 @@ if (project.apply_sealights_in_subproject) {
     sealights {
         appName = "GradleExampleJunitOnly"
         classLoadersExcluded = "no"
-        logLevel = "debug"
-    }
+        proxy="alash:ezPass123@54.246.193.96:5476"
+        logToConsole = false
+        sealightsJvmParams=["sl.ignoreCertificateErrors":"true"]
+        runTestOnly = false
+
+        // sealightsJvmParams=["sl.useApacheClient":"true", "sl.ignoreCertificateErrors":"true"]
+        // sealightsJvmParams=["sl.ignoreCertificateErrors":"true","sl.httpDebugLog":"org.apache.http.headers"]
+        // sealightsJvmParams=["sl.ignoreCertificateErrors":"true", "javax.net.debug":"all", "https.protocols":"TLSv1,TLSv1.1,TLSv1.2"]
+        // sealightsJvmParams=["sl.ignoreCertificateErrors":"true", "javax.net.debug":"ssl,handshake", "https.protocols":"TLSv1,TLSv1.1,TLSv1.2"]
+     }
     println "Applied the subproject appName = $sealights.appName"
 }
 

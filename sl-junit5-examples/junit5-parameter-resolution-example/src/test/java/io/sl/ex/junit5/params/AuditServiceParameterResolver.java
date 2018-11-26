@@ -1,0 +1,25 @@
+
+package io.sl.ex.junit5.params;
+
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.ParameterContext;
+import org.junit.jupiter.api.extension.ParameterResolutionException;
+import org.junit.jupiter.api.extension.ParameterResolver;
+
+import io.sl.ex.junit5.params.AuditService;
+
+public class AuditServiceParameterResolver implements ParameterResolver {
+
+  @Override
+  public Object resolveParameter(ParameterContext parameterContext,
+      ExtensionContext extensionContext) throws ParameterResolutionException {
+    return new AuditService();
+  }
+
+  @Override
+  public boolean supportsParameter(ParameterContext parameterContext,
+      ExtensionContext extensionContext) throws ParameterResolutionException {
+    return (parameterContext.getParameter().getType() == AuditService.class);
+  }
+
+}
