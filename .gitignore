@@ -86,3 +86,4 @@ mvnw*
 /nbdist/
 /.nb-gradle/
 
+sl-cache/

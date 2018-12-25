@@ -39,7 +39,7 @@ if (project.apply_sealights_in_subproject) {
     sealights {
         appName = "GradleExampleJunitOnly"
         classLoadersExcluded = "no"
-        proxy="alash:ezPass123@54.246.193.96:5476"
+        // proxy="alash:ezPass123@54.246.193.96:5476"
         logToConsole = false
         sealightsJvmParams=["sl.ignoreCertificateErrors":"true"]
         runTestOnly = false

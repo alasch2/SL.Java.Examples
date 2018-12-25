@@ -99,4 +99,16 @@ in the build command. See the Examples section for usage.
  4. Build a particular project with sealights and junit5 tests:
  
     _/path/to/gradle-4.6/gradle build test -P sl -Djunit5=true -Dsl.build=12345_
+
+Gradle 5 support
+===============
+Lombok dependency in gradle 5 should be added as following (see java8 example):
+    
+    annotationProcessor("org.projectlombok:lombok:$versions.lombok")
+    implementation("org.projectlombok:lombok:$versions.lombok") 
+
+While in older gradle versions it is just:
+
+    compile "org.projectlombok:lombok:${versions.lombok}"
+
    

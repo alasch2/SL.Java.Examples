@@ -1,7 +1,10 @@
 
 dependencies {
     testCompile "junit:junit:${versions.junit}"
-    compile "org.projectlombok:lombok:${versions.lombok}"
+    // Lomok with gradle 5 demands this instead of comile dependency
+    annotationProcessor("org.projectlombok:lombok:$versions.lombok")
+    implementation("org.projectlombok:lombok:$versions.lombok") 
+    // compile "org.projectlombok:lombok:${versions.lombok}"
     compile "com.google.guava:guava:21.0"
 }
 
