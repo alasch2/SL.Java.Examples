@@ -1,5 +1,5 @@
 ext {
-    jmockitVersion = '1.29'
+    jmockitVersion = '1.44'
     mockitoVersion = '1.10.19'
     versions = [
 // For usage of the local version under development
