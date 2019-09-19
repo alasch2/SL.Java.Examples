@@ -59,11 +59,11 @@ on any build with _'sl'_ or _'sl-all'_ profile.
    _mvn clean install -Psl-all -Dsl.build=12345_
 2. Build a particular project from the root project directory:
 
-   _mvn clean install -f example-java8 -Psl -Dbuild=12345_  
+   _mvn clean install -f example-java8 -Psl -Dsl.build=12345_  
    
 3. Build a particular project from the project directory:
    
-   _mvn clean install -Psl -Dbuild=12345_  
+   _mvn clean install -Psl -Dsl.build=12345_  
    
 Gradle examples
 ===============

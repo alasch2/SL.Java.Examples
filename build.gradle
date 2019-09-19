@@ -18,7 +18,7 @@ if (project.hasProperty('sl')) {
         project.apply_sealights_in_subproject = false
     }
     else {
-        project.apply_sealights_in_subproject = true;
+        project.apply_sealights_in_subproject = true
     }
     println "'sl' provided; apply_sealights_in_subproject = $apply_sealights_in_subproject"
 }
@@ -51,9 +51,9 @@ buildscript {
         // maven { url uri("C:/Users/ala schneider/.m2/repository") }
     }
     dependencies {
-        classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:2.1.0'
+        //classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:2.1.0'
         // classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:2.1.209'
-        // classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:latest.release'
+         classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:latest.release'
     }
 }
 

@@ -30,9 +30,9 @@
 		<maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
 <!-- 		<maven.surefire.plugin.version>2.21.0</maven.surefire.plugin.version> -->
 		<!-- The development version  -->
-		<sealights.plugin.version>2.1.0-SNAPSHOT</sealights.plugin.version>
+<!--		<sealights.plugin.version>2.1.0-SNAPSHOT</sealights.plugin.version>-->
 		<!-- Recent version  -->
-		<!-- <sealights.plugin.version>2.1.374</sealights.plugin.version> -->
+		 <sealights.plugin.version>2.1.374</sealights.plugin.version>
 		
 		<!--  jacoco configuration -->
 		<maven.jacoco.plugin.version>0.8.0</maven.jacoco.plugin.version>
@@ -46,6 +46,7 @@
         <sldebug>${sldebugOff}</sldebug>
         <!-- Set this for debugging of test listener-->
 <!--         <sldebug>${sldebugOn}</sldebug> -->
+		<token.file.path>C:\dev\SeaLights\sl-agents-token.txt</token.file.path>
 	</properties>
 
 	<modules>
@@ -60,6 +61,7 @@
 		<!-- <module>sl-example-surefire-outofmemory</module> -->
 		<!-- <module>sl-example-dynamic-class-load</module> -->
 		<!-- <module>sl-junit5-examples</module> -->
+		 <module>sl-example-soapui</module>
 	</modules>
 	
 	<dependencies>
@@ -178,7 +180,7 @@
 						<includeResources>true</includeResources>
 						<!--Path to valid token should be set-->
 						<!--<tokenFile>path/to/token</tokenFile>-->
-						<tokenFile>C:\SL\ENV\tokens\sl-agents-token.txt</tokenFile>
+						<tokenFile>${token.file.path}</tokenFile>
 						<!-- Linux env -->
 						<!--<tokenFile>sl_ala1_token.txt</tokenFile>-->
 						<build>${sl.build}</build>
@@ -192,8 +194,8 @@
 						<filesexcluded>*test-classes*</filesexcluded>
 						<!-- <logEnabled>true</logEnabled> -->
 						<logLevel>info</logLevel>
-						<logToConsole>false</logToConsole>
-						<logToFile>false</logToFile>
+						<logToConsole>true</logToConsole>
+						<logToFile>true</logToFile>
 						<testStage>Unit Tests</testStage>
 						<!-- <buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled> -->
 						<!-- <testListenerIgnoreLogEnabled>true</testListenerIgnoreLogEnabled> -->
