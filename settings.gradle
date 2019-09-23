@@ -5,3 +5,4 @@ include 'sl-example-junit-testng'
 if (System.getProperty("junit5")) {
     include 'sl-example-junit5'
 }
+include 'sl-example-jmockit'

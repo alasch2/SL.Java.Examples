@@ -11,6 +11,7 @@ The repository contains example projects , which are integrated with the sealigh
  * example-junit-testng - a combination of JUnit4 and TestNG tests
  * example-testng-only - TestNG tests, some using the PowerMock (only for Maven plugin).
  * example-jmockit - using of jmockit for tests.
+ * example-soapui - using SopaUI for tests
 
 Build types
 =========== 
