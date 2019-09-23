@@ -37,10 +37,6 @@ buildNumber.properties
 
 output/
 
-.idea/
-*.iml
-*.iws
-
 #Exclude the local-maven-repo
 /local-maven-repo
 
@@ -65,9 +61,7 @@ mvnw*
 
 ### STS ###
 .apt_generated
-.classpath
 .factorypath
-.project
 .settings
 .springBeans
 .sts4-cache
@@ -87,3 +81,5 @@ mvnw*
 /.nb-gradle/
 
 sl-cache/
+
+sl-example-soapui/soupui-output

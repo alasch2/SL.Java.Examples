@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="4af9da0f-a4b8-47ee-817d-63f6e626c2e7" activeEnvironment="Default" name="CalculatorService" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config">
+    <con:settings/>
+    <con:interface xsi:type="con:RestService" id="36468e97-de43-445b-98a7-110ad0f1492a" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:8080" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:settings/>
+
+
+        <con:definitionCache type="TEXT" rootPart=""/>
+        <con:endpoints>
+            <con:endpoint>http://localhost:8080</con:endpoint>
+        </con:endpoints>
+        <con:resource name="calculation" path="/calculation" id="fabbfc06-27de-4755-902a-5e21912201e4">
+            <con:settings/>
+            <con:parameters/>
+            <con:method name="POST" id="ae68b976-25e7-4ed7-97e6-ff7f6757f1a6" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:cal="http://localhost/calculation">cal:Fault</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="13.0 / 12" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request>{
+                        "binaryOperation": "DIVISION",
+                        "leftOperand": 13.0,
+                        "rightOperand": 12
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/calculation</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+                <con:request name="2.5 * 3.6" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request>{
+                        "binaryOperation": "MULTIPLICATION",
+                        "leftOperand": 2.5,
+                        "rightOperand": 3.6
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/calculation</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+                <con:request name="-2.1 + 4.6" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request>{
+                        "binaryOperation": "ADDITION",
+                        "leftOperand": -2.1,
+                        "rightOperand": 4.6
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/calculation</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+                <con:request name="22.1 - 44.0" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request>{
+                        "binaryOperation": "SUBTRACTION",
+                        "leftOperand": -22.1,
+                        "rightOperand": 44.0
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/calculation</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+                <con:request name="13.0 / 0.0" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request>{
+                        "binaryOperation": "DIVISION",
+                        "leftOperand": 13.0,
+                        "rightOperand": 0.0
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/calculation</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+                <con:request name="missing leftOperand" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request>{
+                        "binaryOperation": "DIVISION",
+                        "rightOperand": 12
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/calculation</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+                <con:request name="missing rightOperand" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request>{
+                        "binaryOperation": "DIVISION",
+                        "leftOperand": 12
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/calculation</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+                <con:request name="missing binaryOperation" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request>{
+                        "leftOperand": 2.6,
+                        "rightOperand": 1.7
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/calculation</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="addition" path="/addition" id="dfa12312-f2b9-43b9-a43e-cad0cbd96b99">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>leftOperand</con:name>
+                    <con:value/>
+                    <con:style>QUERY</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+                <con:parameter>
+                    <con:name>rightOperand</con:name>
+                    <con:value/>
+                    <con:style>QUERY</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="GET" id="0bfe1bde-c4d4-4681-90e1-856bbf425784" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                </con:representation>
+                <con:request name="10.3 + 3.7" id="46d8007a-8e19-45a8-9b9f-6ea7538c13cc" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/addition</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <con:entry key="leftOperand" value="10.3"/>
+                        <con:entry key="rightOperand" value="3.7"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>leftOperand</con:entry>
+                        <con:entry>rightOperand</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="multiplication" path="/multiplication" id="dfa12312-f2b9-43b9-a43e-cad0cbd96b99">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>leftOperand</con:name>
+                    <con:value/>
+                    <con:style>QUERY</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+                <con:parameter>
+                    <con:name>rightOperand</con:name>
+                    <con:value/>
+                    <con:style>QUERY</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="GET" id="0bfe1bde-c4d4-4681-90e1-856bbf425784" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                </con:representation>
+                <con:request name="10.3 * 3.7" id="46d8007a-8e19-45a8-9b9f-6ea7538c13cc" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/addition</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <con:entry key="leftOperand" value="10.3"/>
+                        <con:entry key="rightOperand" value="3.7"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>leftOperand</con:entry>
+                        <con:entry>rightOperand</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="division" path="/division" id="dfa12312-f2b9-43b9-a43e-cad0cbd96b99">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>leftOperand</con:name>
+                    <con:value/>
+                    <con:style>QUERY</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+                <con:parameter>
+                    <con:name>rightOperand</con:name>
+                    <con:value/>
+                    <con:style>QUERY</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="GET" id="0bfe1bde-c4d4-4681-90e1-856bbf425784" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                </con:representation>
+                <con:request name="10.3 / 3.7" id="46d8007a-8e19-45a8-9b9f-6ea7538c13cc" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/addition</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <con:entry key="leftOperand" value="10.3"/>
+                        <con:entry key="rightOperand" value="3.7"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>leftOperand</con:entry>
+                        <con:entry>rightOperand</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="subtraction" path="/subtraction" id="dfa12312-f2b9-43b9-a43e-cad0cbd96b99">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>leftOperand</con:name>
+                    <con:value/>
+                    <con:style>QUERY</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+                <con:parameter>
+                    <con:name>rightOperand</con:name>
+                    <con:value/>
+                    <con:style>QUERY</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="GET" id="0bfe1bde-c4d4-4681-90e1-856bbf425784" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                </con:representation>
+                <con:request name="10.3 - 3.7" id="46d8007a-8e19-45a8-9b9f-6ea7538c13cc" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/addition</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <con:entry key="leftOperand" value="10.3"/>
+                        <con:entry key="rightOperand" value="3.7"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>leftOperand</con:entry>
+                        <con:entry>rightOperand</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource>
+    </con:interface>
+    <con:testSuite id="96776b29-2699-4242-823c-72607f43f753" name="Calculation Basic Functionality Tests">
+        <con:settings/>
+        <con:runType>SEQUENTIAL</con:runType>
+        <con:testCase id="fd533f7b-0df7-4d7a-8cab-5e8b594a03a3" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="13.0 / 12" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="restrequest" name="Calculation 1 - Request 1" id="8adc85fd-2b69-4416-bbf1-eae3a4ebe63c">
+                <con:settings/>
+                <con:config service="http://localhost:8080" resourcePath="/calculation" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="Calculation 1 - Request 1" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request>{
+                            "binaryOperation": "DIVISION",
+                            "leftOperand": 13,
+                            "rightOperand": 12
+                            }
+                        </con:request>
+                        <con:originalUri>http://localhost/calculation</con:originalUri>
+                        <con:assertion type="Simple Contains" id="f83db8be-e65d-4f6d-b9d1-57cdf9a60cf3" name="Contains">
+                            <con:configuration>
+                                <token>1.0833333333333333</token>
+                                <ignoreCase>false</ignoreCase>
+                                <useRegEx>false</useRegEx>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:properties/>
+        </con:testCase>
+        <con:testCase id="a4628a95-d822-441a-8103-f685cf5a0891" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="2.5 * 3.6" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="restrequest" name="2.5 * 3.6" id="634522e0-4442-410a-9e68-de6e61b3b19b">
+                <con:settings/>
+                <con:config service="http://localhost:8080" resourcePath="/calculation" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="2.5 * 3.6" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request>{
+                            "binaryOperation": "MULTIPLICATION",
+                            "leftOperand": 2.5,
+                            "rightOperand": 3.6
+                            }
+                        </con:request>
+                        <con:originalUri>http://localhost/calculation</con:originalUri>
+                        <con:assertion type="Simple Contains" id="35e67fd5-b81b-4fa2-b235-f71dbcd2bc5a" name="Contains">
+                            <con:configuration>
+                                <token>9.0</token>
+                                <ignoreCase>false</ignoreCase>
+                                <useRegEx>false</useRegEx>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:properties/>
+        </con:testCase>
+        <con:testCase id="54ea336a-1456-4673-8271-5e1215319284" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="-2.1 + 4.6" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="restrequest" name="-2.1 + 4.6" id="9b7b1e29-e3cc-41d8-89bc-c14eb99079a2">
+                <con:settings/>
+                <con:config service="http://localhost:8080" resourcePath="/calculation" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="-2.1 + 4.6" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request>{
+                            "binaryOperation": "ADDITION",
+                            "leftOperand": -2.1,
+                            "rightOperand": 4.6
+                            }
+                        </con:request>
+                        <con:originalUri>http://localhost/calculation</con:originalUri>
+                        <con:assertion type="Simple Contains" id="209db33a-99e0-4e79-89bb-8b10ad69bf4d" name="Contains">
+                            <con:configuration>
+                                <token>2.4999999999999996</token>
+                                <ignoreCase>false</ignoreCase>
+                                <useRegEx>false</useRegEx>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:properties/>
+        </con:testCase>
+        <con:testCase id="847dd960-27c6-4a33-9fd9-b33fa56b63dd" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="22.1 - 44.0" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="restrequest" name="22.1 - 44.0" id="cf81c0db-fd4b-49f0-adc0-7526da67f4dd">
+                <con:settings/>
+                <con:config service="http://localhost:8080" resourcePath="/calculation" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="22.1 - 44.0" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request>{
+                            "binaryOperation": "SUBTRACTION",
+                            "leftOperand": 22.1,
+                            "rightOperand": 44.0
+                            }
+                        </con:request>
+                        <con:originalUri>http://localhost/calculation</con:originalUri>
+                        <con:assertion type="Simple Contains" id="fc377e5f-d6c6-4c71-9aab-facf6f876496" name="Contains">
+                            <con:configuration>
+                                <token>21.9</token>
+                                <ignoreCase>false</ignoreCase>
+                                <useRegEx>false</useRegEx>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:properties/>
+        </con:testCase>
+        <con:testCase id="580f0771-84a9-4235-84ae-8984598637f5" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="13.0 / 0.0" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="restrequest" name="13.0 / 0.0" id="1bd09ec6-313f-4fc3-a94b-cf83b8684d48">
+                <con:settings/>
+                <con:config service="http://localhost:8080" resourcePath="/calculation" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="13.0 / 0.0" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request>{
+                            "binaryOperation": "DIVISION",
+                            "leftOperand": 13.0,
+                            "rightOperand": 0.0
+                            }
+                        </con:request>
+                        <con:originalUri>http://localhost/calculation</con:originalUri>
+                        <con:assertion type="Simple Contains" id="7c6b5acf-4edd-4842-8bbc-fb019c583094" name="Contains">
+                            <con:configuration>
+                                <token>"Infinity"</token>
+                                <ignoreCase>false</ignoreCase>
+                                <useRegEx>false</useRegEx>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:properties/>
+        </con:testCase>
+        <con:properties/>
+    </con:testSuite>
+    <con:testSuite id="ea39627c-0fba-4fe6-a27a-8d542c957b2d" name="Calculation Invalid Input Tests">
+        <con:settings/>
+        <con:runType>SEQUENTIAL</con:runType>
+        
+        
+        <con:testCase id="54e107cf-5048-4790-a8e3-3b2133bcf8fe" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="missing binaryOperation 500" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="restrequest" name="missing binaryOperation" id="d3cedd6e-a365-4c4e-a8d3-d9a17e8dd8d6">
+                <con:settings/>
+                <con:config service="http://localhost:8080" resourcePath="/calculation" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="missing binaryOperation" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request>{
+                            "leftOperand": 2.6,
+                            "rightOperand": 1.7
+                            }
+                        </con:request>
+                        <con:originalUri>http://localhost/calculation</con:originalUri>
+                        <con:assertion type="Valid HTTP Status Codes" id="c3300173-be55-4dd6-9129-69885734693a" name="Valid HTTP Status Codes">
+                            <con:configuration><codes>500</codes></con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:properties/>
+        </con:testCase>
+        <con:testCase id="448acf07-c156-431b-a5e0-3e6e89421552" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="invalid leftOperand 400" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="restrequest" name="invalid leftOperand" id="708575b2-e902-4d19-9309-9596746480ac">
+                <con:settings/>
+                <con:config service="http://localhost:8080" resourcePath="/calculation" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="invalid leftOperand" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request>{
+                            "binaryOperation": "DIVISION",
+                            "leftOperand": "string not numeric",
+                            "rightOperand": 0.0
+                            }
+                        </con:request>
+                        <con:originalUri>http://localhost/calculation</con:originalUri>
+                        <con:assertion type="Valid HTTP Status Codes" id="26bef482-5edb-4776-ada3-4b1fc24eac1a" name="Valid HTTP Status Codes">
+                            <con:configuration>
+                                <codes>400</codes>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:properties/>
+        </con:testCase>
+        <con:testCase id="6b1db283-c124-4fed-806d-da281697c57f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="invalid rightOperand 400" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="restrequest" name="invalid rightOperand" id="51fa9e2a-6d70-46d2-99f7-30a1c526e68b">
+                <con:settings/>
+                <con:config service="http://localhost:8080" resourcePath="/calculation" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="invalid rightOperand" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request>{
+                            "binaryOperation": "DIVISION",
+                            "leftOperand": 5.4,
+                            "rightOperand": "string not numeric"
+                            }
+                        </con:request>
+                        <con:originalUri>http://localhost/calculation</con:originalUri>
+                        <con:assertion type="Valid HTTP Status Codes" id="26bef482-5edb-4776-ada3-4b1fc24eac1a" name="Valid HTTP Status Codes">
+                            <con:configuration>
+                                <codes>400</codes>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:properties/>
+        </con:testCase>
+        <con:testCase id="616b74da-cdaf-4a13-b9c6-2f165a52e57d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="invalid binaryOperation 400" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="restrequest" name="invalid binaryOperation" id="2eddc2be-0f9e-425d-ba0f-afbc0f6f3c8f">
+                <con:settings/>
+                <con:config service="http://localhost:8080" resourcePath="/calculation" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="invalid binaryOperation" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request>{
+                            "binaryOperation": "INVALID",
+                            "leftOperand": 5.4,
+                            "rightOperand": 4.2
+                            }
+                        </con:request>
+                        <con:originalUri>http://localhost/calculation</con:originalUri>
+                        <con:assertion type="Valid HTTP Status Codes" id="26bef482-5edb-4776-ada3-4b1fc24eac1a" name="Valid HTTP Status Codes">
+                            <con:configuration><codes>400</codes></con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:properties/>
+        </con:testCase>
+        <con:properties/>
+    </con:testSuite>
+    
+    <con:testSuite id="22ba120c-b60a-4f78-9b54-ec5e838dcf1a" name="Integrate endpoints">
+        <con:settings/>
+        <con:runType>SEQUENTIAL</con:runType>
+        <con:testCase id="71fd3f44-7753-4614-bcc3-2c036e0628e1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Call calculation with results from other endpoints" searchProperties="true">
+            <con:settings/>
+
+
+            <con:testStep type="restrequest" name="subtraction" id="88a1328b-3d6b-42ab-994e-e44c76092743">
+                <con:settings/>
+                <con:config service="http://localhost:8080" resourcePath="/subtraction" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="subtraction" id="46d8007a-8e19-45a8-9b9f-6ea7538c13cc" mediaType="application/json">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request/>
+                        <con:originalUri>http://localhost/addition</con:originalUri>
+                        <con:assertion type="JsonPath Match" id="50ce752f-570d-436e-afd4-1bd4244f429b" name="JsonPath Match">
+                            <con:configuration>
+                                <path>$.result</path>
+                                <content>3.0</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters>
+                            <con:entry key="leftOperand" value="5"/>
+                            <con:entry key="rightOperand" value="2"/>
+                        </con:parameters>
+                        <con:parameterOrder>
+                            <con:entry>leftOperand</con:entry>
+                            <con:entry>rightOperand</con:entry>
+                        </con:parameterOrder>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:testStep type="restrequest" name="multiplication" id="40f963c8-04da-4402-aeae-1ab6bcb4217b">
+                <con:settings/>
+                <con:config service="http://localhost:8080" resourcePath="/multiplication" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="multiplication" id="46d8007a-8e19-45a8-9b9f-6ea7538c13cc" mediaType="application/json">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request/>
+                        <con:originalUri>http://localhost/addition</con:originalUri>
+                        <con:assertion type="JsonPath Match" id="3f67f846-24b7-4733-b686-0b118bceda26" name="JsonPath Match">
+                            <con:configuration>
+                                <path>$.result</path>
+                                <content>14.0</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters>
+                            <con:entry key="leftOperand" value="3.5"/>
+                            <con:entry key="rightOperand" value="4.0"/>
+                        </con:parameters>
+                        <con:parameterOrder>
+                            <con:entry>leftOperand</con:entry>
+                            <con:entry>rightOperand</con:entry>
+                        </con:parameterOrder>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+
+            <con:testStep type="transfer" name="Property Transfer" id="167e29ad-d3f0-44f8-8d97-41cd57b351a0">
+                <con:settings/>
+                <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+                        <con:name>diff</con:name>
+                        <con:sourceType>Response</con:sourceType>
+                        <con:sourceStep>subtraction</con:sourceStep>
+                        <con:sourcePath>$.result</con:sourcePath>
+                        <con:targetType>Request</con:targetType>
+                        <con:targetStep>REST Request</con:targetStep>
+                        <con:targetPath>$.leftOperand</con:targetPath>
+                        <con:type>JSONPATH</con:type>
+                        <con:targetTransferType>JSONPATH</con:targetTransferType>
+                        <con:upgraded>true</con:upgraded>
+                    </con:transfers>
+                    <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+                        <con:name>mult</con:name>
+                        <con:sourceType>Response</con:sourceType>
+                        <con:sourceStep>multiplication</con:sourceStep>
+                        <con:sourcePath>$.result</con:sourcePath>
+                        <con:targetType>Request</con:targetType>
+                        <con:targetStep>REST Request</con:targetStep>
+                        <con:targetPath>$.rightOperand</con:targetPath>
+                        <con:type>JSONPATH</con:type>
+                        <con:targetTransferType>JSONPATH</con:targetTransferType>
+                        <con:upgraded>true</con:upgraded>
+                    </con:transfers>
+                </con:config>
+            </con:testStep>
+            <con:testStep type="restrequest" name="REST Request" id="03e6a283-88db-4178-95f2-c31f9d3fd994">
+                <con:settings/>
+                <con:config service="http://localhost:8080" resourcePath="/calculation" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="REST Request" id="03938f0c-433d-41ef-90de-d31d56259b88" mediaType="application/json" postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request>{
+   "leftOperand": 3,
+   "rightOperand": 14,
+   "binaryOperation": "ADDITION"
+}</con:request>
+                        <con:originalUri>http://localhost/calculation</con:originalUri>
+                        <con:assertion type="JsonPath Match" id="2ec32e91-e1ba-45db-b0de-2c853af76aea" name="JsonPath Match">
+                            <con:configuration>
+                                <path>$.result</path>
+                                <content>17.0</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+
+            <con:properties/>
+        </con:testCase>
+
+
+        <con:properties/>
+    </con:testSuite>
+    <con:testSuite id="3b331bdb-b2d9-4354-b894-e06d604ae968" name="Data Driven Tests">
+        <con:settings/>
+        <con:runType>SEQUENTIAL</con:runType>
+        <con:testCase id="fae41812-aa53-40b3-9189-df6cea9f9dd0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="groovy" name="StartLooping" id="a70e35ab-97c4-45f2-b342-6a5c53cfee43">
+                <con:settings/>
+                <con:config>
+                    <script>def s = testRunner.testCase.getPropertyValue( "inputs")
+                        def testTriples = s.split(";")
+                        def i = Integer.parseInt(testRunner.testCase.getPropertyValue( "counter"))
+
+                        def values = testTriples[i].split(',')
+
+                        testRunner.testCase.setPropertyValue("leftOperand", values[0])
+                        testRunner.testCase.setPropertyValue("rightOperand", values[1])
+                        testRunner.testCase.setPropertyValue("expectedResult", values[2])
+
+                        i++
+                        testRunner.testCase.setPropertyValue( "counter", i.toString())
+                    </script>
+                </con:config>
+            </con:testStep>
+            <con:testStep type="transfer" name="Property Transfer" id="6e743cd2-4d89-4663-a00f-cf737b65b654">
+                <con:settings/>
+                <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+                        <con:name>left</con:name>
+                        <con:sourceType>leftOperand</con:sourceType>
+                        <con:sourceStep>#TestCase#</con:sourceStep>
+                        <con:targetType>leftOperand</con:targetType>
+                        <con:targetStep>addition request</con:targetStep>
+                        <con:upgraded>true</con:upgraded>
+                    </con:transfers>
+                    <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+                        <con:name>right</con:name>
+                        <con:sourceType>rightOperand</con:sourceType>
+                        <con:sourceStep>#TestCase#</con:sourceStep>
+                        <con:targetType>rightOperand</con:targetType>
+                        <con:targetStep>addition request</con:targetStep>
+                        <con:upgraded>true</con:upgraded>
+                    </con:transfers>
+                </con:config>
+            </con:testStep>
+            <con:testStep type="restrequest" name="addition request" id="410ca1e9-d552-4c85-a26d-23bcd81edabe">
+                <con:settings/>
+                <con:config service="http://localhost:8080" methodName="GET" resourcePath="/addition" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="addition request" id="52f38bfe-7b1f-4a64-91e3-91079393e435" mediaType="application/json">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:encoding>UTF-8</con:encoding>
+                        <con:endpoint>http://localhost:8080</con:endpoint>
+                        <con:request/>
+                        <con:originalUri>http://localhost/addition</con:originalUri>
+                        <con:assertion type="JsonPath Match" id="ae0cc181-8050-46f9-a979-0b655c818b48" name="JsonPath Match">
+                            <con:configuration>
+                                <path>$.result</path>
+                                <content>${#TestCase#expectedResult}</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters>
+  <con:entry key="leftOperand" value="3.7"/>
+  <con:entry key="rightOperand" value="23"/>
+</con:parameters>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:testStep type="groovy" name="LoopBack" id="f0a01bda-7563-4767-9fee-80cd086e138c">
+                <con:settings/>
+                <con:config>
+                    <script>def s = testRunner.testCase.getPropertyValue( "inputs")
+                        def inputs = s.split(';')
+                        def i = Integer.parseInt(testRunner.testCase.getPropertyValue( "counter"))
+
+                        if (i &lt; inputs.size()) {
+                        testRunner.gotoStepByName ('StartLooping')
+                        } else {
+                        testRunner.testCase.setPropertyValue( "counter", new Integer(0).toString())
+                        }
+                    </script>
+                </con:config>
+            </con:testStep>
+            <con:properties>
+                <con:property>
+                    <con:name>inputs</con:name>
+                    <con:value>7,2,9.0;3.4,5,8.4;3.7,23,26.7</con:value>
+                </con:property>
+                <con:property>
+                    <con:name>counter</con:name>
+                    <con:value>0</con:value>
+                </con:property>
+                <con:property>
+                    <con:name>leftOperand</con:name>
+                    <con:value>3.7</con:value>
+                </con:property>
+                <con:property>
+                    <con:name>rightOperand</con:name>
+                    <con:value>23</con:value>
+                </con:property>
+                <con:property>
+                    <con:name>expectedResult</con:name>
+                    <con:value>26.7</con:value>
+                </con:property>
+            </con:properties>
+        </con:testCase>
+        <con:properties>
+            <con:property>
+                <con:name>leftOperand</con:name>
+                <con:value>7</con:value>
+            </con:property>
+            <con:property>
+                <con:name>rightOperand</con:name>
+                <con:value>2</con:value>
+            </con:property>
+            <con:property>
+                <con:name>expectedResult</con:name>
+                <con:value>9</con:value>
+            </con:property>
+            <con:property>
+                <con:name>counter</con:name>
+                <con:value>1</con:value>
+            </con:property>
+        </con:properties>
+    </con:testSuite>
+    <con:properties/>
+    <con:wssContainer/>
+    <con:oAuth2ProfileContainer/>
+    <con:oAuth1ProfileContainer/>
+    <con:sensitiveInformation/>
+</con:soapui-project>
