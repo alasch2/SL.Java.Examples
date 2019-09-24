@@ -11,18 +11,16 @@ The repository contains example projects , which are integrated with the sealigh
  * example-junit-testng - a combination of JUnit4 and TestNG tests
  * example-testng-only - TestNG tests, some using the PowerMock (only for Maven plugin).
  * example-jmockit - using of jmockit for tests.
- * example-soapui - using SopaUI for tests
+ * example-soapui - using SopaUI for tests (work in progress). See the project ReadMe for details.
 
-Build types
-=========== 
+## Build types
 Any example project may be built individually. 
  
 All examples may be built all together from the root project.
 
 By default the example projects are built without sealights.
 
-Build with sealights
---------------------
+## Build with sealights
 Similar to a regular build, the build with sealights may be done for all the examples together
  or to a single example. 
  
@@ -48,23 +46,29 @@ It is intended for root recursive build of the root project.
 When it is applied to the sub-project, it works same as the **'sl'** profile.
 See the Examples section for usage.
 
-**Plugin Parameters** 
-1. The plugin parameters are defined in the pom of the root project; 
-the sub-projects poms contain only **appName** parameter.
-2. Build number should be provided as system property _'-Dsl.build={build value}_ 
-on any build with _'sl'_ or _'sl-all'_ profile.
+**Pom Settings**
+There are several properties to be set in the root pom:
+1. The property `tokenfile.path` should be set to the relevant token file location.
+2. The property `buildscanner.path` should be set to the actual path to the build-scanner jar.
+3. The property `testlistener.path` should be set to the actual path to the test-listener jar.
+
+**Sealigts Plugin Parameters** 
+1. The Sealigts plugin parameters are defined in the root project pom; the sub-projects poms by default contain only **appName** parameter.
+2. Parameter, which is defined in the sub-project, overrides the parameter in the root project.
+3. When running build with profiles _'sl'_ or _'sl-all'_  the build number should be provided as system property
+ _'-Dsl.build={build value}'_ .
 
 **Examples**
 1. Build all projects as a single application. Run from the root project directory:
 
-   _mvn clean install -Psl-all -Dsl.build=12345_
+       mvn clean install -Psl-all -Dsl.build=12345
 2. Build a particular project from the root project directory:
 
-   _mvn clean install -f example-java8 -Psl -Dsl.build=12345_  
-   
+       mvn clean install -f example-java8 -Psl -Dsl.build=12345  
+       
 3. Build a particular project from the project directory:
    
-   _mvn clean install -Psl -Dsl.build=12345_  
+       mvn clean install -Psl -Dsl.build=12345  
    
 Gradle examples
 ===============

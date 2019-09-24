@@ -16,8 +16,8 @@
         <java.version>1.7</java.version>
         <spring.boot.version>1.4.4.RELEASE</spring.boot.version>
         <soapui.version>5.5.0</soapui.version>
-        <soapui.classpath>C:\Program Files (x86)\SmartBear\SoapUI-5.5.0\bin\soapui-5.5.0.jar";"C:\Program Files (x86)\SmartBear\SoapUI-5.5.0\lib\*</soapui.classpath>
-        <test.listener.jar.path>C:\Users\Bartosz Kaczkowski\IdeaProjects\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-2.0.0-SNAPSHOT.jar</test.listener.jar.path>
+        <!--suppress UnresolvedMavenProperty -->
+        <soapui.classpath>"${env.SOAPUI_HOME}\bin\soapui-5.5.0.jar;${env.SOAPUI_HOME}\lib\*"</soapui.classpath>
     </properties>
 
     <dependencies>
@@ -41,7 +41,10 @@
 
     <profiles>
         <profile>
-            <id>run-soapui-test-cases</id>
+            <id>sl-soapui</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
             <build>
                 <plugins>
                     <plugin>
@@ -59,11 +62,15 @@
                                     <arguments>
                                         <argument>-classpath</argument>
                                         <argument>${soapui.classpath}</argument>
-                                        <argument>-javaagent:${test.listener.jar.path}</argument>
+                                        <argument>-javaagent:${testlistener.path}</argument>
                                         <argument>-Dsl.log.level=info</argument>
                                         <argument>-Dsl.log.toConsole=true</argument>
-                                        <argument>-Dsl.tokenFile=${token.file.path}</argument>
+                                        <argument>-Dsl.tokenFile=${tokenfile.path}</argument>
+                                        <!--suppress UnresolvedMavenProperty -->
                                         <argument>-Dsl.buildSessionId=${bsid}</argument>
+                                        <argument>-Dsl.testStage=Integration Tests</argument>
+                                        <!-- Meantime TIA is disabled-->
+                                        <argument>-Dsl.tia.disabled=true</argument>
                                         <argument>com.eviware.soapui.tools.SoapUITestCaseRunner</argument>
                                         <argument>${basedir}/CalculatorService-soapui-project.xml</argument>
                                     </arguments>
@@ -92,6 +99,11 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring.boot.version}</version>
+<!--                This does not work, just for memo-->
+<!--                <configuration>-->
+<!--                    <agent>${testlistener.path}</agent>-->
+<!--                    <jvmArguments>-Dsl.log.toConsole=true -Dsl.tokenFile=${tokenfile.path} -Dsl.buildSessionId=${bsid} -Dsl.testStage=Integration Tests</jvmArguments>-->
+<!--                </configuration>-->
                 <executions>
                     <execution>
                         <id>pre-integration-test</id>
@@ -107,6 +119,15 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>io.sealights.on-premise.agents.plugin</groupId>
+                <artifactId>sealights-maven-plugin</artifactId>
+                <configuration>
+                    <appName>SL-Maven-ExampleSoapUI</appName>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
