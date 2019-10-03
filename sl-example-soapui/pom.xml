@@ -4,21 +4,34 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>io.sealights.examples</groupId>
+    <artifactId>sl-example-soapui</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
     <parent>
         <groupId>io.sealights.examples</groupId>
         <artifactId>sl-maven-examples-container</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>sl-example-soapui</artifactId>
-
     <properties>
         <java.version>1.7</java.version>
         <spring.boot.version>1.4.4.RELEASE</spring.boot.version>
         <soapui.version>5.5.0</soapui.version>
-        <!--suppress UnresolvedMavenProperty -->
         <soapui.classpath>"${env.SOAPUI_HOME}\bin\soapui-5.5.0.jar;${env.SOAPUI_HOME}\lib\*"</soapui.classpath>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -38,6 +51,46 @@
             <version>${spring.boot.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+                <configuration>
+                    <mainClass>io.sl.ex.calculator.CalculatorApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>io.sealights.on-premise.agents.plugin</groupId>
+                <artifactId>sealights-maven-plugin</artifactId>
+                <configuration>
+                    <appName>SL-Maven-ExampleSoapUI</appName>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
 
     <profiles>
         <profile>
@@ -66,10 +119,9 @@
                                         <argument>-Dsl.log.level=info</argument>
                                         <argument>-Dsl.log.toConsole=true</argument>
                                         <argument>-Dsl.tokenFile=${tokenfile.path}</argument>
-                                        <!--suppress UnresolvedMavenProperty -->
                                         <argument>-Dsl.buildSessionId=${bsid}</argument>
                                         <argument>-Dsl.testStage=Integration Tests</argument>
-                                        <!-- Meantime TIA is disabled-->
+                                        <!-- TIA is disabled for demo purposes -->
                                         <argument>-Dsl.tia.disabled=true</argument>
                                         <argument>com.eviware.soapui.tools.SoapUITestCaseRunner</argument>
                                         <argument>${basedir}/CalculatorService-soapui-project.xml</argument>
@@ -81,54 +133,7 @@
                 </plugins>
             </build>
         </profile>
+
     </profiles>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven.compiler.plugin.version}</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring.boot.version}</version>
-<!--                This does not work, just for memo-->
-<!--                <configuration>-->
-<!--                    <agent>${testlistener.path}</agent>-->
-<!--                    <jvmArguments>-Dsl.log.toConsole=true -Dsl.tokenFile=${tokenfile.path} -Dsl.buildSessionId=${bsid} -Dsl.testStage=Integration Tests</jvmArguments>-->
-<!--                </configuration>-->
-                <executions>
-                    <execution>
-                        <id>pre-integration-test</id>
-                        <goals>
-                            <goal>start</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>post-integration-test</id>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>io.sealights.on-premise.agents.plugin</groupId>
-                <artifactId>sealights-maven-plugin</artifactId>
-                <configuration>
-                    <appName>SL-Maven-ExampleSoapUI</appName>
-                </configuration>
-            </plugin>
-
-        </plugins>
-    </build>
 
 </project>

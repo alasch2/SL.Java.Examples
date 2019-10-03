@@ -83,3 +83,4 @@ mvnw*
 sl-cache/
 
 sl-example-soapui/soupui-output
+logs/
