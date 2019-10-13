@@ -47,17 +47,17 @@
         <sldebug>${sldebugOff}</sldebug>
         <!-- Set this for debugging of test listener-->
         <!-- <sldebug>${sldebugOn}</sldebug> -->
-<!--		<token.file.path>path/to/tokenfile</token.file.path>-->
-<!--		<testlistener.path>path/to/testlistener</testlistener.path>-->
-<!--		<buildscanner.path>path/to/buildscanner</buildscanner.path>-->
+		<token.file.path>path/to/tokenfile</token.file.path>
+		<test.listener.path>path/to/testlistener</test.listener.path>
+		<buildscanner.path>path/to/buildscanner</buildscanner.path>
 		<!-- Bartosz -->
 <!--		<token.file.path>C:\dev\SeaLights\sl-agents-token.txt</token.file.path>-->
-<!--		<testlistener.path>C:\Users\Bartosz Kaczkowski\IdeaProjects\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-2.0.0-SNAPSHOT.jar</test.listener.path>-->
+<!--		<test.listener.path>C:\Users\Bartosz Kaczkowski\IdeaProjects\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-2.0.0-SNAPSHOT.jar</test.listener.path>-->
 <!--		<buildscanner.path>C:\Users\Bartosz Kaczkowski\IdeaProjects\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-2.0.0-SNAPSHOT.jar</buildscanner.path>-->
 		<!-- Ala -->
-		<tokenfile.path>C:\SL\ENV\tokens\sl-agents-token.txt</tokenfile.path>
-		<testlistener.path>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-2.0.0-SNAPSHOT.jar</testlistener.path>
-		<buildscanner.path>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-2.0.0-SNAPSHOT.jar</buildscanner.path>
+<!--		<tokenfile.path>C:\SL\ENV\tokens\sl-agents-token.txt</tokenfile.path>-->
+<!--		<testlistener.path>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-2.0.0-SNAPSHOT.jar</testlistener.path>-->
+<!--		<buildscanner.path>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-2.0.0-SNAPSHOT.jar</buildscanner.path>-->
 	</properties>
 
 	<modules>

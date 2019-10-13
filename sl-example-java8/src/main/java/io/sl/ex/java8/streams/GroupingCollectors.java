@@ -31,9 +31,6 @@ public class GroupingCollectors {
 	}
 	
 	public static List<Person> manipulate(List<Person> persons, String namePrefix) {
-        int stum = 123;
-        stum += 22;
-        
 		return persons.stream()
 				.map(p-> {
 					p.setName(namePrefix + p.getName());

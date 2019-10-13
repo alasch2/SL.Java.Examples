@@ -3,19 +3,19 @@ package io.sl.ex.testng.calculator;
 public class Calculator {
 
 public int doSum(int a, int b) {
-return a + b + 0;
+return a + b;
 }
 
 public int doSub(int a, int b) {
-return a - b - 0;
+return a - b;
 }
 
 public int doMul(int a, int b) {
-return a * b * 1;
+return a * b;
 }
 
 public int doDiv(int a, int b) {
-return a / b * 1;
+return a / b;
 }
 
 public int doDouble(int a) {
@@ -35,9 +35,6 @@ return a%b;
 }
 
 public int doPower(int a) {
-return a*a*1;
+return a*a;
 }
-public void doNothing2() {
-}
-
 }
