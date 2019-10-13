@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import io.sl.ex.testng.calculator.Calculator;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class CalcTestNGTest {
 
@@ -21,5 +22,10 @@ public class CalcTestNGTest {
         System.out.println("inputs: " + input +" expected: " + expected);
         Calculator calc = new Calculator();
         assertEquals(expected, calc.doPower(input));
+     }
+
+     @Test
+     public void testNothing() {
+        assertTrue(true);
      }
 }

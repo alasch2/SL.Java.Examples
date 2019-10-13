@@ -10,7 +10,7 @@ public class AdditionDoubler implements IntegerDoubler {
 
 	public long doDouble(int i) {
 		long result = i + i;
-		LOG.info("duouble of {} = {}", i, result);
+		LOG.info("double of {} = {}", i, result);
 		return result;
 	}
 }

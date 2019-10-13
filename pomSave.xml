@@ -14,8 +14,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- Dependencies versions -->
 		<lombok.version>1.16.16</lombok.version>
-        <logback.version>1.2.3</logback.version>
-        <slf4j.version>1.7.25</slf4j.version>
+        	<logback.version>1.2.3</logback.version>
+        	<slf4j.version>1.7.25</slf4j.version>
 		<testng.version>6.9.4</testng.version>
 		<junit.version>4.12</junit.version>
 		<mockito.version>1.10.19</mockito.version>
@@ -47,17 +47,8 @@
         <sldebug>${sldebugOff}</sldebug>
         <!-- Set this for debugging of test listener-->
         <!-- <sldebug>${sldebugOn}</sldebug> -->
-<!--		<token.file.path>path/to/tokenfile</token.file.path>-->
-<!--		<testlistener.path>path/to/testlistener</testlistener.path>-->
-<!--		<buildscanner.path>path/to/buildscanner</buildscanner.path>-->
-		<!-- Bartosz -->
-<!--		<token.file.path>C:\dev\SeaLights\sl-agents-token.txt</token.file.path>-->
-<!--		<testlistener.path>C:\Users\Bartosz Kaczkowski\IdeaProjects\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-2.0.0-SNAPSHOT.jar</test.listener.path>-->
-<!--		<buildscanner.path>C:\Users\Bartosz Kaczkowski\IdeaProjects\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-2.0.0-SNAPSHOT.jar</buildscanner.path>-->
-		<!-- Ala -->
-		<tokenfile.path>C:\SL\ENV\tokens\sl-agents-token.txt</tokenfile.path>
-		<testlistener.path>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-2.0.0-SNAPSHOT.jar</testlistener.path>
-		<buildscanner.path>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-2.0.0-SNAPSHOT.jar</buildscanner.path>
+        <!-- Added by Bartosz -->
+		<!--	<token.file.path>C:\dev\SeaLights\sl-agents-token.txt</token.file.path> -->
 	</properties>
 
 	<modules>
@@ -75,6 +66,7 @@
 		<!-- <module>sl-example-surefire-outofmemory</module> -->
 		<!-- <module>sl-example-dynamic-class-load</module> -->
 		<!-- <module>sl-junit5-examples</module> -->
+		<!-- <module>sl-kotlin-example</module> -->
   </modules>
 	
 	<dependencies>
@@ -106,7 +98,54 @@
 	</scm>
 
 	<build>
-			
+	
+		<plugins>
+
+<!-- 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+					<configuration>
+						<release>11</release>
+					</configuration>
+			</plugin>
+ -->		
+			<!-- <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.19.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin> -->
+
+			<!-- <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<tagNameFormat>v@{project.version}</tagNameFormat>
+					<checkModificationExcludes>
+						<checkModificationExclude>**/build.gradle</checkModificationExclude>
+						<checkModificationExclude>**/pom.xml</checkModificationExclude>
+					</checkModificationExcludes>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.shared</groupId>
+						<artifactId>maven-invoker</artifactId>
+						<version>2.2</version>
+					</dependency>
+				</dependencies>
+			</plugin> -->
+				
+		</plugins>
+		
 		<pluginManagement>
 			<plugins>
 
@@ -130,7 +169,10 @@
 						<!--Path to valid token should be set-->
 						<!--<tokenFile>path/to/token</tokenFile>-->
 						<!--tokenFile>${token.file.path}</tokenFile-->
-						<tokenFile>${tokenfile.path}</tokenFile>
+						<tokenFile>C:\SL\ENV\tokens\sl-agents-token.txt</tokenFile>
+						<!-- <tokenFile>C:\SL\ENV\tokens\sl-dev-ptc2-token.txt</tokenFile> -->
+						<!-- <tokenFile>C:\SL\ENV\tokens\sl-staging-token.txt</tokenFile>						 -->
+						<!-- <tokenFile>C:\SL\ENV\tokens\sltoken-dev-hash.txt</tokenFile> -->						
 						<build>${sl.build}</build>
 						<branch>master</branch>
 						<createBuildSessionId>true</createBuildSessionId>
@@ -153,9 +195,14 @@
 						<!-- <proxy>alash:ezPass123@54.246.150.1:5476</proxy> -->
 						<!-- <server>http://54.154.181.128:8080/api</server>  -->
 						<sendContributors>true</sendContributors>
- 						<testListenerJar>${testlistener.path}</testListenerJar>
-						<buildScannerJar>${buildscanner.path}</buildScannerJar>
-  						<sealightsJvmParams>
+ 						<testListenerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-2.0.0-SNAPSHOT.jar</testListenerJar>
+						<buildScannerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-2.0.0-SNAPSHOT.jar</buildScannerJar> 
+ 
+ <!--  						<testListenerJar>C:\Users\ala schneider\Dev\Playground\sl-java-downloads\sl-test-listener-2.1.1262.jar</testListenerJar>						
+						<buildScannerJar>C:\Users\ala schneider\Dev\Playground\sl-java-downloads\sl-build-scanner-2.1.1262.jar</buildScannerJar>
+ -->
+  						<!-- Linux env -->
+ 						<sealightsJvmParams>
 							<!-- <sl.scm.baseUrl>https://github.com/alasch2/MavenExample/</sl.scm.baseUrl> -->
 							<!-- <sl.scm>none</sl.scm> -->
 							<!-- <sl.scm.provider>github</sl.scm.provider> -->
@@ -165,7 +212,7 @@
  							<!--<sl.featuresData.reportOnConstructors>false</sl.featuresData.reportOnConstructors>-->
 							<!--<sl.featuresData.reportOnGettersAndSetters>false</sl.featuresData.reportOnGettersAndSetters>-->
 							<!-- <sl.featuresData.sendPartialFootprints>false</sl.featuresData.sendPartialFootprints> -->
-							<sl.tia.disabled>false</sl.tia.disabled>
+							<sl.tia.enable>true</sl.tia.enable>
 							<sl.tia.pollingTimeoutSec>3</sl.tia.pollingTimeoutSec>
  							<!-- <sl.ignoreCertificateErrors>true</sl.ignoreCertificateErrors> -->
 							<sl.httpMaxAttempts>1</sl.httpMaxAttempts>
@@ -276,7 +323,7 @@
 							<createBuildSessionId>false</createBuildSessionId>
 							<runTestOnly>true</runTestOnly>
 							<sealightsJvmParams>
-								<sl.tia.disabled>false</sl.tia.disabled>
+								<sl.tia.enable>true</sl.tia.enable>
 							</sealightsJvmParams>
 						</configuration>
 					</plugin>
@@ -292,6 +339,50 @@
 				</plugins>
 			</build>
 		</profile>
+		<profile>
+			<id>sl-test-all</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					
+			        <plugin>
+			            <groupId>org.apache.maven.plugins</groupId>
+			            <artifactId>maven-surefire-plugin</artifactId>
+			            <configuration>
+			            	<argLine>${sldebug} @{argLine}</argLine>
+			            </configuration>
+			        </plugin>
+					
+					<plugin>
+						<groupId>io.sealights.on-premise.agents.plugin</groupId>
+						<artifactId>sealights-maven-plugin</artifactId>
+						<configuration>
+							<appName>SL-Maven-AllExamples</appName>
+							<!-- <appName>AllMavenExamples-Linux</appName> -->
+						</configuration>
+						<executions>
+							<execution>
+								<!-- No build-scanner -->
+								<id>a1</id>
+								<phase>none</phase>
+							</execution>
+<!-- 							<execution>
+								<id>a2</id>
+								<phase>none</phase>
+							</execution>
+							<execution>
+								<id>a3</id>
+								<phase>none</phase>
+							</execution>
+ -->						</executions>						
+					</plugin>
+	        
+				</plugins>
+			</build>
+		</profile>
+		
 		<profile>
 			<id>sl-all</id>
 			<activation>
@@ -387,6 +478,7 @@
 		<repository>
 			<id>central</id>
 			<url>http://repo1.maven.org/maven2</url>
+			<!-- <url>http://fake.url.org/maven2</url> -->
 		</repository>
 	</repositories>
 	<pluginRepositories>
@@ -394,6 +486,11 @@
 			<id>central</id>
 			<url>http://repo1.maven.org/maven2</url>
 		</pluginRepository>	
+<!-- 		<pluginRepository>
+			<id>sealights-internal</id>
+			<url>http://nex.sealights.co:8081/repository/sealights-internal</url>
+		</pluginRepository>
+ -->  
 	</pluginRepositories>
 
 </project>

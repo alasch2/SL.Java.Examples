@@ -2,6 +2,7 @@ package io.sl.ex.junittestng.impl;
 
 import static org.testng.Assert.assertEquals;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import io.sl.ex.junittestng.iface.IntegerDoubler;
@@ -11,6 +12,7 @@ import io.sl.ex.junittestng.impl.MultiplicationDoubler;
 
 @Test
 public class TestDoublerTestNG {
+
     public void additionDoubler() {
         IntegerDoubler doubler = new AdditionDoubler();
 

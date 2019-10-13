@@ -42,5 +42,5 @@ Using the script is optional, the application may be run with CLI:
        scripts/runApp.bat
 5. From the other terminal run maven build with the profile `sl-soapui`. Provide the build-session-id from the step 3. For example:
        
-       mvn test -P sl-soapui -Dbsid=299801ca-8095-4d51-9a66-3239a10e9e3d
+       mvn install -P sl-soapui -Dbsid=299801ca-8095-4d51-9a66-3239a10e9e3d
 6. Stop the running application after test finished.

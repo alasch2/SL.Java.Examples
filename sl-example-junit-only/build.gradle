@@ -40,9 +40,14 @@ if (project.apply_sealights_in_subproject) {
         appName = "GradleExampleJunitOnly"
         classLoadersExcluded = "no"
         // proxy="alash:ezPass123@54.246.193.96:5476"
-        logToConsole = false
-        sealightsJvmParams=["sl.ignoreCertificateErrors":"true"]
+        logToConsole = true
+        // logFolder="logsAAA"
+        // sealightsJvmParams=["sl.ignoreCertificateErrors":"true"]
         runTestOnly = false
+        filesStorage = "/alatmp"
+        // buildSessionIdFile = ""
+        // createBuildSessionId = false
+
 
         // sealightsJvmParams=["sl.useApacheClient":"true", "sl.ignoreCertificateErrors":"true"]
         // sealightsJvmParams=["sl.ignoreCertificateErrors":"true","sl.httpDebugLog":"org.apache.http.headers"]

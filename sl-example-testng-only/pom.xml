@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>io.sealights.examples</groupId>
@@ -71,10 +69,18 @@
 					<groupId>io.sealights.on-premise.agents.plugin</groupId>
 					<artifactId>sealights-maven-plugin</artifactId>
 					<configuration>
-						<appName>SL-Maven-ExampleTestNGOnly</appName>
+<!-- 						<buildSessionId>b3e54de2-b9f9-43d6-aed6-0afb6fd1a661</buildSessionId>
+						<createBuildSessionId>false</createBuildSessionId>
+ -->						<appName>SL-Maven-ExampleTestNGOnly</appName>
 <!-- 						<logEnabled>false</logEnabled> -->
 						<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>
-						<classLoadersExcluded>no</classLoadersExcluded>
+						<!-- <classLoadersExcluded>no</classLoadersExcluded> -->
+						<sealightsJvmParams>
+							<!-- <sl.featuresData.sendLogs>true</sl.featuresData.sendLogs>						 -->
+							<!-- <sl.log.sendLogsOnShutdown>true</sl.log.sendLogsOnShutdown> -->
+							<!-- <javax.net.debug>ssl</javax.net.debug> -->
+							<!-- <sl.tia.inputFile>C:/Users/ala schneider/Dev/SL.Java.Examples/sl-example-testng-only/excluded-tests.json</sl.tia.inputFile> -->
+						</sealightsJvmParams>
 					</configuration>
 				</plugin>
 				
