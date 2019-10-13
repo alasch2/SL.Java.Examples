@@ -1,5 +1,0 @@
-{
-  "excludedTests":[
-	  "io.sl.ex.testng.calculator.CalcTestNGWithPowerMockTest.testCalcSum_wihMocks",
-	  "io.sl.ex.testng.impl.TestDoublerTestNG.bitshiftDoubler"]  
-}
