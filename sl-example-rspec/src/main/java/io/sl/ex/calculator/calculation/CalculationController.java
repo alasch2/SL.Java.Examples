@@ -36,7 +36,9 @@ public class CalculationController {
     @GetMapping("division")
     public ResponseBody divide(@RequestParam double leftOperand,
                                @RequestParam double rightOperand) {
-        return new ResponseBody(calculationService.divide(leftOperand, rightOperand));
+        ResponseBody responseBody = new ResponseBody(calculationService.divide(leftOperand, rightOperand));
+        System.out.println(responseBody);
+        return responseBody;
     }
 
     @GetMapping("sqrt")
