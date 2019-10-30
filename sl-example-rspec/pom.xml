@@ -83,6 +83,7 @@
                 <artifactId>sealights-maven-plugin</artifactId>
                 <configuration>
                     <appName>SL-Maven-ExampleRSpec</appName>
+                    <testStage>Integration Tests</testStage>
                 </configuration>
             </plugin>
 
