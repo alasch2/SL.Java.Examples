@@ -26,9 +26,10 @@
 		<!-- <maven.compiler.target>1.7</maven.compiler.target> -->
 		<!-- <maven.jar.plugin.version>2.4</maven.jar.plugin.version> -->
 		<maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
-		<maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version> 
+<!--		<maven.surefire.plugin.version>2.12.4</maven.surefire.plugin.version>-->
+		<maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
 		<!-- <maven.surefire.plugin.version>2.22.0</maven.surefire.plugin.version> -->
-		<!-- <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version> -->
+<!-- 		 <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version> -->
 		<!-- <argLine> </argLine> -->
 		<!-- The development version  -->
 		<sealights.plugin.version>2.1.0-SNAPSHOT</sealights.plugin.version>
@@ -46,7 +47,7 @@
         <sldebugOff> </sldebugOff>
         <sldebug>${sldebugOff}</sldebug>
         <!-- Set this for debugging of test listener-->
-        <!-- <sldebug>${sldebugOn}</sldebug> -->
+<!--        <sldebug>${sldebugOn}</sldebug>-->
 		<token.file.path>path/to/tokenfile</token.file.path>
 		<test.listener.path>path/to/testlistener</test.listener.path>
 		<buildscanner.path>path/to/buildscanner</buildscanner.path>
@@ -255,7 +256,10 @@
 			        <plugin>
 			            <groupId>org.apache.maven.plugins</groupId>
 			            <artifactId>maven-surefire-plugin</artifactId>
-			        </plugin>
+						<configuration>
+							<argLine>${sldebug} @{argLine}</argLine>
+						</configuration>
+					</plugin>
 			        
 				</plugins>
 			</build>
