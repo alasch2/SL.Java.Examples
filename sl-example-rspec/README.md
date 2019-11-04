@@ -6,14 +6,14 @@ The service is tested with RSpec test script `spec/calc_service_spec.rb`.
 ## Prerequisites
 1. Download and install a stable release of Ruby (Agent tested with version 2.6) from https://www.ruby-lang.org/en/downloads.
 2. Install the following Ruby gems:
-    - `sealights-rspec-agent`, gem file provided by SeaLights, see repo https://github.com/Sealights/SL.OnPremise.Agents.Ruby,
-    - `rspec`, remote gem (support verified only  for version 3.8.2),
-    - `rest-client`, remote gem,
-    - `jwt`, remote gem.  
+    - `sealights-rspec-agent`
+    - `rspec` (support verified only  for version 3.8.2),
+    - `rest-client`
+    - `jwt`  
     
 Gems are installed by command:
 
-        gem install <[local-gem-file-path|remote-gem-name]>
+        gem install <gem-name>
 
 ## Scripts and configuration
 ### Application run script
