@@ -13,10 +13,11 @@
 	<packaging>jar</packaging>
 
 	<properties>
-		<!--<cucumber.version>2.4.0</cucumber.version> -->
-		<cucumber.version>4.2.6</cucumber.version>
+		<cucumber.version>2.4.0</cucumber.version>
+<!--		<cucumber.version>4.2.6</cucumber.version>-->
 <!-- 		<cucumber.version>4.7.1</cucumber.version> -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<!--		 <sldebug>${sldebugOn}</sldebug>-->
 	</properties>
 
 	<dependencies>
@@ -60,7 +61,8 @@
 				<artifactId>sealights-maven-plugin</artifactId>
 				<configuration>
 					<appName>SL-Maven-ExampleCucumber</appName>
-					<logLevel>debug</logLevel>
+					<logLevel>info</logLevel>
+					<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>
 				</configuration>
 			</plugin>
 

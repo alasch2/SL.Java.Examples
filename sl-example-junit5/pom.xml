@@ -73,9 +73,11 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.1</version>
+				<!-- This versions does not run JUnit5 tests !!!-->
+				<!--<version>2.22.1</version>-->
+				<version>2.19.1</version>
 				<configuration>
-					<argLine>@{argLine} -Dsl.junitVersion=5</argLine> 
+					<argLine>@{argLine}</argLine>
 					<includes>
 						<include>**/Test*.java</include>
 						<include>**/*Test.java</include>
@@ -96,12 +98,12 @@
                         <dependency> 
                             <groupId>org.junit.platform</groupId> 
                             <artifactId>junit-platform-surefire-provider</artifactId> 
-                            <version>1.0.3</version> 
+                            <version>${junit.platform.version}</version>
                         </dependency> 
                         <dependency> 
                             <groupId>org.junit.jupiter</groupId> 
                             <artifactId>junit-jupiter-engine</artifactId> 
-                            <version>5.0.3</version> 
+                            <version>${junit.jupiter.version}</version>
                         </dependency> 
                 </dependencies>
             </plugin>
