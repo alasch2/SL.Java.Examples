@@ -4,10 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.sealights.examples</groupId>
     <artifactId>sl-example-soapui</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-
     <parent>
         <groupId>io.sealights.examples</groupId>
         <artifactId>sl-maven-examples-container</artifactId>
@@ -15,9 +12,11 @@
     </parent>
 
     <properties>
+        <dev.properties.path>${project.parent.basedir}</dev.properties.path>
         <java.version>1.7</java.version>
         <spring.boot.version>1.4.4.RELEASE</spring.boot.version>
         <soapui.version>5.5.0</soapui.version>
+        <!--suppress UnresolvedMavenProperty -->
         <soapui.classpath>"${env.SOAPUI_HOME}\bin\soapui-5.5.0.jar;${env.SOAPUI_HOME}\lib\*"</soapui.classpath>
     </properties>
 

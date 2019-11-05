@@ -7,15 +7,13 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	
-	<artifactId>sl-maven-ex-junit-testng</artifactId>
-	<name>sl-maven-ex-junit-testng</name>
-	<url>http://maven.apache.org</url>
+	<artifactId>sl-example-junit-testng</artifactId>
 
 	<properties>
+		<dev.properties.path>${project.parent.basedir}</dev.properties.path>
 		<powermock.version>1.7.1</powermock.version>
 		<logback.version>1.2.3</logback.version>
 		<slf4j.version>1.7.7</slf4j.version>
-		<sldebug>${sldebugOn}</sldebug>
 	</properties>
 	
 	<dependencies>

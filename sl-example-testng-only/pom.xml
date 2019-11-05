@@ -7,11 +7,10 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	
-	<artifactId>sl-maven-ex-testng-only</artifactId>
-	<name>sl-maven-ex-testng-only</name>
-	<url>http://maven.apache.org</url>
+	<artifactId>sl-example-testng-only</artifactId>
 
 	<properties>
+		<dev.properties.path>${project.parent.basedir}</dev.properties.path>
 		<testng.version>6.10</testng.version>
 		<junit.version>4.12</junit.version>
 		<mockito.version>1.10.19</mockito.version>

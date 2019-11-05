@@ -13,6 +13,7 @@
 	<packaging>jar</packaging>
 
 	<properties>
+		<dev.properties.path>${project.parent.basedir}</dev.properties.path>
 		<cucumber.version>2.4.0</cucumber.version>
 <!--		<cucumber.version>4.2.6</cucumber.version>-->
 <!-- 		<cucumber.version>4.7.1</cucumber.version> -->

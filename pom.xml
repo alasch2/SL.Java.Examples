@@ -20,7 +20,6 @@
 		<junit.version>4.12</junit.version>
 		<mockito.version>1.10.19</mockito.version>
 		<powermock.version>1.7.1</powermock.version>
-		
 		<!-- Plugins versions -->
 		<!-- <maven.compiler.source>1.7</maven.compiler.source> -->
 		<!-- <maven.compiler.target>1.7</maven.compiler.target> -->
@@ -30,7 +29,7 @@
 		<maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
 		<!-- <maven.surefire.plugin.version>2.22.0</maven.surefire.plugin.version> -->
 <!-- 		 <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version> -->
-		<!-- <argLine> </argLine> -->
+		<sealightsArgLine> </sealightsArgLine>
 		<!-- The development version  -->
 		<sealights.plugin.version>2.1.0-SNAPSHOT</sealights.plugin.version>
 		<!-- Recent version  -->
@@ -40,25 +39,19 @@
 		<maven.jacoco.plugin.version>0.8.0</maven.jacoco.plugin.version>
 		<jacoco.reportPath>${project.build.directory}/jacoco-ut.exec</jacoco.reportPath>
 		<jacoco.reportPathIT>${project.build.directory}/jacoco-it.exec</jacoco.reportPathIT>
-		
+
+		<!--  <sealights.skip>true</sealights.skip> -->
+
 		<!-- debugging stuff -->
-<!--         <sealights.skip>true</sealights.skip> -->
         <sldebugOn>-agentlib:jdwp=transport=dt_socket,server=n,address=localhost:5005,suspend=y</sldebugOn>
         <sldebugOff> </sldebugOff>
         <sldebug>${sldebugOff}</sldebug>
-        <!-- Set this for debugging of test listener-->
-<!--        <sldebug>${sldebugOn}</sldebug>-->
-		<token.file.path>path/to/tokenfile</token.file.path>
-		<test.listener.path>path/to/testlistener</test.listener.path>
-		<buildscanner.path>path/to/buildscanner</buildscanner.path>
-		<!-- Bartosz -->
-<!--		<token.file.path>C:\dev\SeaLights\sl-agents-token.txt</token.file.path>-->
-<!--		<test.listener.path>C:\Users\Bartosz Kaczkowski\IdeaProjects\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-2.0.0-SNAPSHOT.jar</test.listener.path>-->
-<!--		<buildscanner.path>C:\Users\Bartosz Kaczkowski\IdeaProjects\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-2.0.0-SNAPSHOT.jar</buildscanner.path>-->
-		<!-- Ala -->
-<!--		<tokenfile.path>C:\SL\ENV\tokens\sl-agents-token.txt</tokenfile.path>-->
-<!--		<testlistener.path>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-2.0.0-SNAPSHOT.jar</testlistener.path>-->
-<!--		<buildscanner.path>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-2.0.0-SNAPSHOT.jar</buildscanner.path>-->
+        <!-- Uncomment this for debugging of test listener-->
+		<!-- The property for debugging may be also defined in a sub-project-->
+		<!-- <sldebug>${sldebugOn}</sldebug>-->
+
+		<!-- The properties location should be redefined in each sub-project to value ${project.parent.basedir}-->
+		<dev.properties.path>${project.basedir}</dev.properties.path>
 	</properties>
 
 	<modules>
@@ -107,10 +100,32 @@
 	</scm>
 
 	<build>
-			
 		<pluginManagement>
 			<plugins>
-
+				<!-- Serves for reading of properties from dev.properties file.
+				 The properties define location on a particular dev environment of:
+				 token file, build-scanner and test-listener jars and are used by
+				 sealights-maven-plugin
+				-->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>properties-maven-plugin</artifactId>
+					<version>1.0.0</version>
+					<executions>
+						<execution>
+							<phase>initialize</phase>
+							<goals>
+								<goal>read-project-properties</goal>
+							</goals>
+							<configuration>
+								<files>
+									<file>${dev.properties.path}/dev.properties</file>
+								</files>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+					
 		        <plugin>
 		            <groupId>org.apache.maven.plugins</groupId>
 		            <artifactId>maven-surefire-plugin</artifactId>
@@ -128,9 +143,6 @@
 					<version>${sealights.plugin.version}</version>
 					<configuration>
 						<includeResources>true</includeResources>
-						<!--Path to valid token should be set-->
-						<!--<tokenFile>path/to/token</tokenFile>-->
-						<!--tokenFile>${token.file.path}</tokenFile-->
 						<tokenFile>${tokenfile.path}</tokenFile>
 						<build>${sl.build}</build>
 						<branch>master</branch>
@@ -193,6 +205,7 @@
 						</execution>
 						<execution>
 							<id>a3</id>
+							<phase>initialize</phase>
 							<goals>
 								<goal>prepare-test-listener</goal>
 							</goals>
@@ -202,6 +215,7 @@
 
 			</plugins>
 		</pluginManagement>
+
 	</build>
 	
 	<profiles>
@@ -247,6 +261,15 @@
 			</activation>
 			<build>
 				<plugins>
+					<!-- The properties-maven-plugin should be defined in pom before
+					the sealights-maven-plugin, since properties should be initialized from
+					the external dev.properies file before sealights-maven-plugin
+					-->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>properties-maven-plugin</artifactId>
+					</plugin>
+			        
 					<plugin>
 						<groupId>io.sealights.on-premise.agents.plugin</groupId>
 						<artifactId>sealights-maven-plugin</artifactId>
@@ -257,10 +280,10 @@
 			            <groupId>org.apache.maven.plugins</groupId>
 			            <artifactId>maven-surefire-plugin</artifactId>
 						<configuration>
-							<argLine>${sldebug} @{argLine}</argLine>
+							<argLine>${sldebug} @{sealightsArgLine}</argLine>
 						</configuration>
 					</plugin>
-			        
+					
 				</plugins>
 			</build>
 		</profile>
@@ -271,6 +294,15 @@
 			</activation>
 			<build>
 				<plugins>
+					<!-- The properties-maven-plugin should be defined in pom before
+					the sealights-maven-plugin, since properties should be initialized from
+					the external dev.properies file before sealights-maven-plugin
+					-->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>properties-maven-plugin</artifactId>
+					</plugin>
+
 					<plugin>
 						<groupId>io.sealights.on-premise.agents.plugin</groupId>
 						<artifactId>sealights-maven-plugin</artifactId>
@@ -289,7 +321,7 @@
 			            <groupId>org.apache.maven.plugins</groupId>
 			            <artifactId>maven-surefire-plugin</artifactId>
 			            <configuration>
-			            	<argLine>${sldebug} @{argLine}</argLine>
+			            	<argLine>${sldebug} @{sealightsArgLine}</argLine>
 			            </configuration>
 			        </plugin>
 			        
@@ -303,13 +335,21 @@
 			</activation>
 			<build>
 				<plugins>
+					<!-- The properties-maven-plugin should be defined in pom before
+					the sealights-maven-plugin, since properties should be initialized from
+					the external dev.properies file before sealights-maven-plugin
+					-->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>properties-maven-plugin</artifactId>
+					</plugin>
+					
 					<plugin>
 						<groupId>io.sealights.on-premise.agents.plugin</groupId>
 						<artifactId>sealights-maven-plugin</artifactId>
 						<!-- using different application name and packages -->
 						<configuration>
 							<appName>SL-Maven-AllExamples</appName>
-							<!-- <appName>AllMavenExamples-Linux</appName> -->
 						</configuration>
 					</plugin>
 					
@@ -317,9 +357,10 @@
 			            <groupId>org.apache.maven.plugins</groupId>
 			            <artifactId>maven-surefire-plugin</artifactId>
 			            <configuration>
-			            	<argLine>@{argLine}</argLine>
+			            	<argLine>@{sealightsArgLine}</argLine>
 			            </configuration>
 			        </plugin>
+
 				</plugins>
 			</build>
 		</profile>

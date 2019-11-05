@@ -8,7 +8,7 @@ Examples:
  * example-junit-testng - a combination of JUnit4 and TestNG tests
  * example-testng-only - TestNG tests, some using the PowerMock (only for Maven plugin).
  * example-jmockit - using of jmockit for tests.
- * example-soapui - using SopaUI for tests (work in progress). See the project ReadMe for details.
+ * example-soapui - using SopaUI for tests. See the project ReadMe for details.
 
 ## Build types
 Any example project may be built individually. 
@@ -43,10 +43,12 @@ When it is applied to the sub-project, it works same as the **'sl'** profile.
 See the Examples section for usage.
 
 ### Pom Settings
-There are several properties to be set in the root pom:
+There are several properties, that are used by the sealights-maven-plugin, that should be defined in the `dev.properties` file, located in the root project:
 1. The property `tokenfile.path` should be set to the relevant token file location.
 2. The property `buildscanner.path` should be set to the actual path to the build-scanner jar.
 3. The property `testlistener.path` should be set to the actual path to the test-listener jar.
+
+**NOTE:** If the dev.properties cannot ve found or has invalid values, the build proceeds without Sealights
 
 ### Sealigts Plugin Parameters 
 1. The Sealigts plugin parameters are defined in the root project pom; the sub-projects poms by default contain only **appName** parameter.
