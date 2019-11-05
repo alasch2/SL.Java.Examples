@@ -85,3 +85,4 @@ sl-cache/
 sl-example-soapui/soupui-output
 logs/
 /gradle/
+/dev.properties
