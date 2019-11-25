@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.sealights.examples</groupId>
+        <artifactId>sl-example-spring-cloud-contract</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+
+    <artifactId>spring-cloud-contract-producer</artifactId>
+ 
+    <name>spring-cloud-contract-producer</name>
+    <!-- FIXME change it to the project's website -->
+    <url>http://www.example.com</url>
+
+    <properties>
+        <dev.properties.path>${project.parent.basedir}/..</dev.properties.path>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-contract-verifier</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-rest</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.sealights.on-premise.agents.plugin</groupId>
+                <artifactId>sealights-maven-plugin</artifactId>
+                <configuration>
+                    <appName>Sl.Example.SpringContractProducer</appName>
+                </configuration>
+
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-contract-maven-plugin</artifactId>
+                <version>2.1.1.RELEASE</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <baseClassForTests>io.sl.ex.spring.cloud.producer.BaseTestClass</baseClassForTests>
+<!-- 						<basePackageForTests>io.sl.ex.spring.cloud.contract.producer</basePackageForTests> -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
