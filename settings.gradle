@@ -2,7 +2,13 @@ rootProject.name = 'javaexamples'
 include 'sl-example-java8'
 include 'sl-example-junit-only'
 include 'sl-example-junit-testng'
-if (System.getProperty("junit5")) {
+
+def currentGradleVersion = gradle.gradleVersion
+println "Running gradle version: $currentGradleVersion"
+// JUnit 5 anf jmockit are not supported by gradle 3.5
+if (System.getProperty("junit5") && !currentGradleVersion.startsWith("3")) {
     include 'sl-example-junit5'
 }
-include 'sl-example-jmockit'
+if (!currentGradleVersion.startsWith("3")) {
+    include 'sl-example-jmockit'
+}
