@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+<!-- 	<parent> -->
+<!-- 		<groupId>io.sealights.examples</groupId> -->
+<!-- 		<artifactId>sl-maven-examples-container</artifactId> -->
+<!-- 		<version>1.0.0-SNAPSHOT</version> -->
+<!-- 	</parent> -->
+	<groupId>io.sealights.examples</groupId>
+	<artifactId>sl-stub-agent</artifactId>
+	<version>0.0.1</version>
+	<name>sl-stub-agent</name>
+	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<asm.version>7.0</asm.version>
+		<junit.version>4.12</junit.version>
+	</properties>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>${asm.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm-commons</artifactId>
+			<version>${asm.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm-util</artifactId>
+			<version>${asm.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+	</dependencies>
+	
+	<build>
+		<plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Premain-Class>io.sl.ex.stubagent.Agent</Premain-Class>
+                            <Can-Retransform-Classes>true</Can-Retransform-Classes>
+                            <Can-Redefine-Classes>true</Can-Redefine-Classes>
+                         </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+		</plugins>
+	</build>
+</project>
