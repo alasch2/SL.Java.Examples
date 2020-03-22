@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <artifactId>sl-maven-examples-container</artifactId>
+        <groupId>io.sealights.examples</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+
+	<artifactId>sl-example-spring-calculator</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>sl-example-spring-calculator-core</module>
+		<module>sl-example-spring-calculator-adding</module>
+		<module>sl-example-spring-calculator-subtracting</module>
+		<module>sl-example-spring-calculator-integ-tests</module>
+	</modules>
+	
+	<properties>
+        <dev.properties.path>..</dev.properties.path>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring-boot-starter-web.version>2.0.6.RELEASE</spring-boot-starter-web.version>
+        <spring-boot-maven-plugin.version>1.5.6.RELEASE</spring-boot-maven-plugin.version>
+        <spring-boot.version>2.0.6.RELEASE</spring-boot.version>
+	</properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+            
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot-maven-plugin.version}</version>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>io.sealights.on-premise.agents.plugin</groupId>
+                <artifactId>sealights-maven-plugin</artifactId>
+                <configuration>
+                    <appName>Sl.Example.SpringCalculator</appName>
+                    <logToConsole>true</logToConsole>
+                    <logLevel>debug</logLevel>
+                    <testListenerIgnoreLogEnabled>true</testListenerIgnoreLogEnabled>
+                    <sealightsJvmParams>
+                        <sl.log.footprints>true</sl.log.footprints>
+                    </sealightsJvmParams>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+	
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-rest</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
+    <profiles>
+    
+		<profile>
+			<id>sl</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<configuration>
+							<argLine>@{sealightsArgLine} -Dsl.testStage="Integration Tests" -Dsl.tia.useModuleName=true</argLine>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>			
+		</profile>
+    
+		<profile>
+			<id>sl-all</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<configuration>
+							<argLine>@{sealightsArgLine} -Dsl.testStage="Integration Tests" -Dsl.tia.useModuleName=true</argLine>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>			
+		</profile>
+    
+    </profiles>
+
+</project>
