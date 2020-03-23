@@ -1,4 +1,4 @@
-package io.sl.example.webcalculator;
+package io.sl.ex.webcalculator;
 
 public class StringUtils {
 

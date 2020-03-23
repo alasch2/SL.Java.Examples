@@ -1,8 +1,8 @@
-package io.sl.example.webcalculator;
+package io.sl.ex.webcalculator;
 
 import org.junit.Test;
 
-import io.sl.example.webcalculator.DateUtils;
+import io.sl.ex.webcalculator.DateUtils;
 
 import java.util.Date;
 

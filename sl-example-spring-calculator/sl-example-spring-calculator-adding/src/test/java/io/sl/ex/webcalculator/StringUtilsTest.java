@@ -1,8 +1,8 @@
-package io.sl.example.webcalculator;
+package io.sl.ex.webcalculator;
 
 import org.junit.Test;
 
-import io.sl.example.webcalculator.StringUtils;
+import io.sl.ex.webcalculator.StringUtils;
 
 public class StringUtilsTest {
 

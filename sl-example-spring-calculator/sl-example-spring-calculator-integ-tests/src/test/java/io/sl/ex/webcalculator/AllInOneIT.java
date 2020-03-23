@@ -1,4 +1,4 @@
-package io.sl.example.webcalculator;
+package io.sl.ex.webcalculator;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,6 +14,9 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import io.sl.ex.webcalculator.AddingController;
+import io.sl.ex.webcalculator.SubtractingController;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = {SubtractingController.class, AddingController.class})
 @RunWith(SpringRunner.class)

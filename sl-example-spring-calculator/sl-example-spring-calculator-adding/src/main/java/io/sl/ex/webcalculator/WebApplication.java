@@ -1,4 +1,4 @@
-package io.sl.example.webcalculator;
+package io.sl.ex.webcalculator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

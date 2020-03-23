@@ -1,6 +1,8 @@
-package io.sl.example.webcalculator;
+package io.sl.ex.webcalculator;
 
 import org.junit.Test;
+
+import io.sl.ex.webcalculator.Calculator;
 
 import static org.junit.Assert.assertEquals;
 
