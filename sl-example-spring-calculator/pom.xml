@@ -39,6 +39,20 @@
                     <version>${spring-boot-maven-plugin.version}</version>
                 </plugin>
 
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>2.19.1</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>integration-test</goal>
+                                <goal>verify</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
             </plugins>
         </pluginManagement>
 
@@ -49,12 +63,16 @@
                 <configuration>
                     <appName>Sl.Example.SpringCalculator</appName>
                     <logToConsole>true</logToConsole>
-                    <logLevel>debug</logLevel>
-                    <testListenerIgnoreLogEnabled>true</testListenerIgnoreLogEnabled>
                     <sealightsJvmParams>
                         <sl.log.footprints>true</sl.log.footprints>
                     </sealightsJvmParams>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.19.1</version>
             </plugin>
 
         </plugins>
