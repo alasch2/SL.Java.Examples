@@ -1,6 +1,6 @@
 package io.sl.ex.junit.calculator;
 
-public class CalculatorRenamed {
+public class Calculator {
 	
 	public int doSum(int a, int b) {
 		return a + b;
