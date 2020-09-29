@@ -72,7 +72,7 @@ allprojects {
             // workspacepath=System.getProperty('ws')
             //buildSessionIdFile = "buildSessionId.txt"
             // logEnabled = false
-            logLevel = "debug"
+            logLevel = "info"
             logToFile = false
             logToConsole = true
             // appName and packagesIncluded are overwritten by subprojects
@@ -81,14 +81,12 @@ allprojects {
             packagesIncluded = "io.sl.ex.*"
             branch = "master"
             build = System.getProperty('sl.build')
-            buildSessionId = "test-provided-bsid-" + build
             createBuildSessionId = true
             // filesExcluded = "*Test"
             //buildScannerIgnoreLogEnabled=true
             // testListenerIgnoreLogEnabled=true
             // testStage = "ut1"
 //            testTasks=["test"]
-
 //            testListenerJar = $testlistenerPath
 //            buildScannerJar = $buildscannerPath
             testListenerJar = "C:/Users/AlaSchneider/Dev/SL.OnPremise.Agents.Java/java-agent-bootstrapper/target/java-agent-bootstrapper-3.0.0-SNAPSHOT.jar"
