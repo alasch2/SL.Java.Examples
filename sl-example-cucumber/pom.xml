@@ -14,7 +14,7 @@
 
 	<properties>
 		<dev.properties.path>${project.parent.basedir}</dev.properties.path>
-		<cucumber.version>1.2.4</cucumber.version>
+		<cucumber.version>2.4.0</cucumber.version>
 <!--		<cucumber.version>4.2.6</cucumber.version>-->
 <!-- 		<cucumber.version>4.7.1</cucumber.version> -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,30 +22,17 @@
 	</properties>
 
 	<dependencies>
-<!--		<dependency>-->
-<!--			<groupId>io.cucumber</groupId>-->
-<!--			<artifactId>cucumber-java</artifactId>-->
-<!--			<version>${cucumber.version}</version>-->
-<!--			<scope>test</scope>-->
-<!--		</dependency>-->
-
-<!--		<dependency>-->
-<!--			<groupId>io.cucumber</groupId>-->
-<!--			<artifactId>cucumber-junit</artifactId>-->
-<!--			<version>${cucumber.version}</version>-->
-<!--			<scope>test</scope>-->
-<!--		</dependency>-->
 		<dependency>
-			<groupId>info.cukes</groupId>
+			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<version>1.2.4</version>
+			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
-			<groupId>info.cukes</groupId>
+			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit</artifactId>
-			<version>1.2.4</version>
+			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -76,7 +63,7 @@
 				<configuration>
 					<appName>SL-Maven-ExampleCucumber</appName>
 <!--					<logLevel>info</logLevel>-->
-					<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>
+<!--					<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>-->
 				</configuration>
 			</plugin>
 

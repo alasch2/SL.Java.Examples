@@ -68,15 +68,10 @@
 					<groupId>io.sealights.on-premise.agents.plugin</groupId>
 					<artifactId>sealights-maven-plugin</artifactId>
 					<configuration>
-<!--						<createBuildSessionId>false</createBuildSessionId>-->
-						<labId>labid-111</labId>
-<!-- 						<moduleName>AAAAA</moduleName>
- -->						
  						<appName>SL-Maven-ExampleJUnitOnly</appName>
 <!--						<buildSessionIdFile>buildSessionId.txt</buildSessionIdFile>-->
 						<!-- <logToConsole>true</logToConsole> -->
 						<!-- <logToFile>true</logToFile> -->
-						<logLevel>trace</logLevel>
 <!--						<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>-->
 <!--						 <testListenerIgnoreLogEnabled>true</testListenerIgnoreLogEnabled>-->
 						<classLoadersExcluded>no</classLoadersExcluded>
@@ -84,10 +79,6 @@
 						<filesexcluded>none</filesexcluded>
 						<!-- <proxy>alash:ezPass123@54.246.193.96:5476</proxy> -->
 						<!-- <proxy>http://localhost:8888</proxy> -->
-						<!-- <buildScannerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-3.0.0-SNAPSHOT.jar</buildScannerJar> -->
-						<!-- <buildScannerJar>C:\Users\ala schneider\Desktop\Investigations\buffer\sl-build-scanner-1.10.867.jar</buildScannerJar> -->
-						<!-- <testListenerJar>C:\Users\ala schneider\Desktop\Investigations\buffer\sl-test-listener-2.0.1122.jar</testListenerJar> -->
-						<!-- <testListenerJar>C:\Users\ala schneider\Desktop\Investigations\buffer\sl-test-listener-1.10.867.jar</testListenerJar> -->
 						<sealightsJvmParams>
 							<sl.featuresData.enableHttpColoring>true</sl.featuresData.enableHttpColoring>
 <!-- 							<sl.featuresData.sendPartialFootprints>true</sl.featuresData.sendPartialFootprints>

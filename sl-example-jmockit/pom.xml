@@ -50,7 +50,7 @@
 					<configuration>
  						<appName>SL-Maven-ExampleJMockit</appName>
 <!--						<logLevel>info</logLevel>-->
-						<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>
+<!--						<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>-->
 						<sealightsJvmParams>
 <!-- 							<sl.featuresData.enableHttpColoring>true</sl.featuresData.enableHttpColoring> -->
 <!-- 							<sl.tia.enable>true</sl.tia.enable> -->

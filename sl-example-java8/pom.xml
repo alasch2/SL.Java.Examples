@@ -104,12 +104,6 @@
 <!-- 					<tokenFile>proofpoint-token.txt</tokenFile>
 					<buildSessionId>704a533e-4748-46f6-a0a4-bae7fba8fd54</buildSessionId>
  -->
- <!-- 			    <logEnabled>    </logEnabled> -->
-					<logToConsole>true</logToConsole>
-<!-- 					<logToFile>true</logToFile> -->
-					<logLevel>debug</logLevel>
-<!--					<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>-->
-					<testListenerIgnoreLogEnabled>true</testListenerIgnoreLogEnabled>
  					<sealightsJvmParams>
 						<!-- <sl.featuresData.sendLogs>true</sl.featuresData.sendLogs> -->
 						<!-- <sl.featuresData.reportOnGettersAndSetters>false</sl.featuresData.reportOnGettersAndSetters> -->
