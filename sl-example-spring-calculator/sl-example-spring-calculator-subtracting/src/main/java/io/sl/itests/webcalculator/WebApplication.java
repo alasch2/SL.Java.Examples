@@ -1,4 +1,4 @@
-package io.sl.ex.webcalculator;
+package io.sl.itests.webcalculator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
