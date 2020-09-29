@@ -99,24 +99,23 @@ public class ClassGeneratorTest {
     }
 
     private Class generateClass(String className, String sourceCode) throws ClassNotFoundException {
-        JavaCompiler compiler;
-        compiler = ToolProvider.getSystemJavaCompiler();
+        JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
 
-        JavaFileObject compilationUnit =
-                new StringJavaFileObject(className, sourceCode);
-
-        SimpleJavaFileManager fileManager =
-                new SimpleJavaFileManager(compiler.getStandardFileManager(null, null, null));
-
-        JavaCompiler.CompilationTask compilationTask = compiler.getTask(
-                null, fileManager, null, null, null, Arrays.asList(compilationUnit));
-
-        if (compilationTask.call()) {
-
-            CompiledClassLoader classLoader =
-                    new CompiledClassLoader(fileManager.getGeneratedOutputFiles());
-            return classLoader.loadClass(className);
-        }
+//        JavaFileObject compilationUnit =
+//                new StringJavaFileObject(className, sourceCode);
+//
+//        SimpleJavaFileManager fileManager =
+//                new SimpleJavaFileManager(compiler.getStandardFileManager(null, null, null));
+//
+//        JavaCompiler.CompilationTask compilationTask = compiler.getTask(
+//                null, fileManager, null, null, null, Arrays.asList(compilationUnit));
+//
+//        if (compilationTask.call()) {
+//
+//            CompiledClassLoader classLoader =
+//                    new CompiledClassLoader(fileManager.getGeneratedOutputFiles());
+//            return classLoader.loadClass(className);
+//        }
         return null;
     }
 

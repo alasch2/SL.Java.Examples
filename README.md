@@ -96,12 +96,12 @@ in the build command. See the Examples section for usage.
 2. Same as above example, but with the default gradle version 4.6 or higher. Run from the root project directory:
     
     _gradle build test -P sl -P all -Djunit5=true -Dsl.build=12345_
-3. Build a particular project with sealights **should be run from the subproject directory**:
+3. Build a particular project with sealights :
 
-   _gradle build test -P sl -Dbuild=12345_
+   _gradle build test -P sl -Dbuild=12345 -p [the project directory]_
  4. Build a particular project with sealights and junit5 tests:
  
-    _/path/to/gradle-4.6/gradle build test -P sl -Djunit5=true -Dsl.build=12345_
+    _/path/to/gradle-4.6/gradle build test -P sl -Djunit5=true -Dsl.build=12345 -p [the project directory]_
 
 ### Gradle 5 support
 Lombok dependency in gradle 5 should be added as following (see java8 example):

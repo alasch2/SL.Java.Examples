@@ -124,9 +124,23 @@ if (project.apply_sealights_in_subproject) {
 	sealights {
 		appName = "GradleExampleJunit5"
 		sealightsJvmParams=["sl.junitVersion":"5"]
-        testTasks=["kuku","test", "junitPlatformTest"]
+        testTasks=["otherTest","test", "junitPlatformTest"]
 	}
 	println "Applied the subproject appName = $sealights.appName"
 	ext.appName = ["$sealights.appName"]
 	ext.packagesIncluded = ["$sealights.packagesIncluded"]
+
+//	test {
+//		sealights {
+//                testStage = "Some Tests Stage"
+//		}
+//	}
+//
+//	junitPlatformTest {
+//		sealights {
+//			testStage='stage 1'
+//		}
+//	}
 }
+
+

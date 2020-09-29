@@ -41,15 +41,16 @@ if (project.apply_sealights_in_subproject) {
 
     sealights {
         appName = "GradleExampleJunitTestNG"
-        logLevel = "info"
+        logLevel = "debug"
         logToConsole = true
-        buildScannerIgnoreLogEnabled=true
-        // testListenerIgnoreLogEnabled=true
+//        buildScannerIgnoreLogEnabled=true
+         testListenerIgnoreLogEnabled=true
         // This is invalid build session without additional info
         //buildSessionId="7c9d5e3f-aed9-4289-be04-fe5f8d773871"
-        //buildSessionId="65e0874f-c927-4974-a63c-9b940f6f2e61"
+        buildSessionId="8813cac3-6196-4194-b8c8-1d4b3ab061e8"
+        workspacepath="C:\\Users\\AlaSchneider\\Dev\\SL.Java.Examples\\sl-example-junit-testng\\build\\classes"
         // buildSessionIdFile = ""
-        createBuildSessionId = true
+        createBuildSessionId = false
         // runTestOnly=true
     }
     println "Applied the subproject appName = $sealights.appName"

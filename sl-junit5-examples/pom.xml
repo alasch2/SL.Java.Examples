@@ -168,14 +168,13 @@
 						<build>${sl.build}</build>
 						<branch>master</branch>
 						<createBuildSessionId>true</createBuildSessionId>
-						<moduleName>${project.name}</moduleName>
 						<workspacepath>${project.build.outputDirectory}</workspacepath>
 						<filesincluded>*.class</filesincluded>
 						<filesStorage>/tmp</filesStorage>
 						<packagesincluded>io.sl.ex.*</packagesincluded>
 						<filesexcluded>*test-classes*</filesexcluded>
 						<!-- <logEnabled>true</logEnabled> -->
-						<logLevel>info</logLevel>
+<!--						<logLevel>info</logLevel>-->
 						<logToConsole>false</logToConsole>
 						<logToFile>false</logToFile>
 						<testStage>Unit Tests</testStage>
@@ -186,12 +185,12 @@
 <!-- 						<proxy>127.0.0.1:8888</proxy> -->
 						<!--<server>http://54.154.181.128:8080/api</server> -->
 						<sendContributors>true</sendContributors>
-						<testListenerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-2.0.0-SNAPSHOT.jar</testListenerJar>
-						<buildScannerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-2.0.0-SNAPSHOT.jar</buildScannerJar>
+						<testListenerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-3.0.0-SNAPSHOT.jar</testListenerJar>
+						<buildScannerJar>C:\Users\ala schneider\Dev\SL.OnPremise.Agents.Java\java-build-agent\target\java-build-agent-3.0.0-SNAPSHOT.jar</buildScannerJar>
 
  						<!-- Linux env -->
-<!-- 		            <buildScannerJar>../SL.OnPremise.Agents.Java/java-build-agent/target/java-build-agent-2.0.0-SNAPSHOT.jar</buildScannerJar>
-		                <testListenerJar>../SL.OnPremise.Agents.Java/java-agent-bootstrapper/target/java-agent-bootstrapper-2.0.0-SNAPSHOT.jar</testListenerJar>
+<!-- 		            <buildScannerJar>../SL.OnPremise.Agents.Java/java-build-agent/target/java-build-agent-3.0.0-SNAPSHOT.jar</buildScannerJar>
+		                <testListenerJar>../SL.OnPremise.Agents.Java/java-agent-bootstrapper/target/java-agent-bootstrapper-3.0.0-SNAPSHOT.jar</testListenerJar>
  --> 
  						<sealightsJvmParams>
 							<!-- <sl.scm.baseUrl>https://github.com/alasch2/MavenExample/</sl.scm.baseUrl> -->

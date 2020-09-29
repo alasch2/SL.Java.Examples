@@ -1,6 +1,6 @@
 SETLOCAL
 
-:: SET agentpath="C:\Users\Bartosz Kaczkowski\IdeaProjects\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-2.0.0-SNAPSHOT.jar"
+:: SET agentpath="C:\Users\Bartosz Kaczkowski\IdeaProjects\SL.OnPremise.Agents.Java\java-agent-bootstrapper\target\java-agent-bootstrapper-3.0.0-SNAPSHOT.jar"
 SET agentpath=path/to/test-listener-jar
 
 :: SET token="C:\dev\SeaLights\sl-agents-token.txt"

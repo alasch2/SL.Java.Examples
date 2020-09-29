@@ -17,7 +17,7 @@ public class CalcTest {
     @Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
-                 { 0, 1 }, { 2, 4 }, { 3, 6 }, { 0, 1 }, { 4, 8 }, { 0, 1 }, { 5, 10 }
+                { 0, 1 }, { 2, 4 }, { 3, 6 }, { 0, 1 }, { 4, 8 }, { 0, 1 }, { 5, 10 }
            });
     }
 
@@ -26,8 +26,8 @@ public class CalcTest {
     private int expected;
 
     public CalcTest(int input, int expected) {
-        this.input= input;
-        this.expected= expected;
+        this.input = input;
+        this.expected = expected;
         System.out.println("inputs: " + input +" expected: " + expected);
     }
 

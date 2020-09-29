@@ -63,6 +63,7 @@
                 <configuration>
                     <appName>Sl.Example.SpringCalculator</appName>
                     <logToConsole>true</logToConsole>
+                    <buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>
                     <sealightsJvmParams>
                         <sl.log.footprints>true</sl.log.footprints>
                     </sealightsJvmParams>

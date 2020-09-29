@@ -9,8 +9,10 @@ import org.powermock.modules.junit4.PowerMockRunner;
 @RunWith(PowerMockRunner.class)
 public class CalcWithPowerMockTest {
 
-	private static Integer[] INPUTS = {0,2,3,0,4,0,5};
-	private static Integer[] OUTPUTS = {1,4,6,1,8,1,10};
+//	private static Integer[] INPUTS = {0,2,3,0,4,0,5};
+//	private static Integer[] OUTPUTS = {1,4,6,1,8,1,10};
+	private static Integer[] INPUTS = {0,2,3};
+	private static Integer[] OUTPUTS = {1,4,6};
 
     @Test
     public void testIncAndDbl() {

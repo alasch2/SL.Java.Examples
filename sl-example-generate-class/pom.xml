@@ -21,6 +21,11 @@
   </properties>
 
   <dependencies>
+<!--    <dependency>-->
+<!--      <groupId>org.projectlombok</groupId>-->
+<!--      <artifactId>lombok</artifactId>-->
+<!--      <version>${lombok.version}</version>-->
+<!--    </dependency>-->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -39,8 +44,7 @@
           <logLevel>info</logLevel>
           <buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>
           <packagesincluded>io.sl.ex.*</packagesincluded>
-          <packagesexcluded>*ClassGeneratorTest*</packagesexcluded>
-        </configuration>
+       </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

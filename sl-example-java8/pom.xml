@@ -12,7 +12,7 @@
 
 	<properties>
 		<dev.properties.path>${project.parent.basedir}</dev.properties.path>
-		<!-- <sldebug>${sldebugOn}</sldebug>	 -->
+<!--		 <sldebug>${sldebugOn}</sldebug>-->
 	</properties>
 
 	<dependencies>
@@ -41,6 +41,45 @@
 	<build>
 
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+<!--					<argLine>-Xms512m -Xmx2048m @{sealightsArgLine}</argLine>-->
+<!--					<argLine>-Xms512m -Xmx2048m @{sealightsArgLine} ${argLine}</argLine>-->
+<!--                    <argLine>-Xms512m -Xmx2048m @{sealightsArgLine} -Dsl.testStage="Unit Tests" ${argLine}</argLine>-->
+                </configuration>
+			</plugin>
+
+<!--			jacoco - customer-->
+<!--			<plugin>-->
+<!--				<groupId>org.jacoco</groupId>-->
+<!--				<artifactId>jacoco-maven-plugin</artifactId>-->
+<!--				<version>0.8.3</version>-->
+<!--				<configuration>-->
+<!--					<dataFile>${project.coverage.report.directory}/jacoco.exec</dataFile>-->
+<!--					<destFile>${project.coverage.report.directory}/jacoco.exec</destFile>-->
+<!--				</configuration>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<id>jacoco-prepare</id>-->
+<!--						<phase>test-compile</phase>-->
+<!--						<goals>-->
+<!--							<goal>prepare-agent</goal>-->
+<!--						</goals>-->
+<!--					</execution>-->
+<!--					<execution>-->
+<!--						<id>jacoco-report</id>-->
+<!--						<phase>post-integration-test</phase>-->
+<!--						<goals>-->
+<!--							<goal>report</goal>-->
+<!--						</goals>-->
+<!--						<configuration>-->
+<!--							<outputDirectory>${project.coverage.report.directory}</outputDirectory>-->
+<!--						</configuration>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
 
 			<!-- ========================= -->
 			<!-- Compiler plug-in -->
@@ -61,18 +100,16 @@
 				<configuration>
 					<appName>SL-Maven-ExampleJava8</appName>
 					<!-- <packagesincluded>io.sl.ex.*.GroupingCollectors*</packagesincluded> -->
-					<!-- <createBuildSessionId>false</createBuildSessionId> -->
-					<!-- <buildSessionId>6a15a3b9-2358-48f1-8472-844985cef966</buildSessionId> -->
 					<!-- simulation of the proof-point problem -->
 <!-- 					<tokenFile>proofpoint-token.txt</tokenFile>
 					<buildSessionId>704a533e-4748-46f6-a0a4-bae7fba8fd54</buildSessionId>
  -->
- <!-- 			    <logEnabled>    </logEnabled>
-					<logToConsole>false</logToConsole>
- -->					
-<!-- 					<logToFile>true</logToFile>
+ <!-- 			    <logEnabled>    </logEnabled> -->
+					<logToConsole>true</logToConsole>
+<!-- 					<logToFile>true</logToFile> -->
 					<logLevel>debug</logLevel>
- -->					<!-- <testListenerIgnoreLogEnabled>true</testListenerIgnoreLogEnabled> -->
+<!--					<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>-->
+					<testListenerIgnoreLogEnabled>true</testListenerIgnoreLogEnabled>
  					<sealightsJvmParams>
 						<!-- <sl.featuresData.sendLogs>true</sl.featuresData.sendLogs> -->
 						<!-- <sl.featuresData.reportOnGettersAndSetters>false</sl.featuresData.reportOnGettersAndSetters> -->
@@ -86,6 +123,8 @@
 						<!-- <sl.debug.classMethodsExcluded>*.ServiceInstantiation.?init?</sl.debug.classMethodsExcluded> -->
 						<!-- <sl.ignoreCertificateErrors>true</sl.ignoreCertificateErrors> -->
 						<sl.tia.excludedTestsLogsMax>250</sl.tia.excludedTestsLogsMax>
+						<sl.log.footprints>true</sl.log.footprints>
+<!--						<sl.httpRequestsLogLocation>logs</sl.httpRequestsLogLocation>-->
 					</sealightsJvmParams>
 				</configuration>
 			</plugin>

@@ -3,14 +3,14 @@ ext {
     mockitoVersion = '1.10.19'
     versions = [
 // For usage of the local version under development
-//              sealights:['2.0.0-SNAPSHOT'],
+//              sealights:['3.0.0-SNAPSHOT'],
 // For the official latest version (from local Nexus repo)
             // sealights:['latest.release'],
             junit:['4.12'],
             mockito:['1.10.19'],
             powermock:['1.7.1'],
-            testng:['6.9.4'],
-            testng:['6.9.5'],
+            //testng:['6.9.4'],
+            //testng:['6.9.5'],
             // Starting from this test ng version testng instrumentation is working
             testng:['6.9.13.3'],
            // testng:['6.10'],
@@ -30,4 +30,3 @@ ext {
             ]
     ]
 }
-9

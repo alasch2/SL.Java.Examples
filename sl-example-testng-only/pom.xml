@@ -72,7 +72,7 @@
 						<createBuildSessionId>false</createBuildSessionId>
  -->						<appName>SL-Maven-ExampleTestNGOnly</appName>
 <!-- 						<logEnabled>false</logEnabled> -->
-						<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>
+<!--						<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>-->
 						<!-- <classLoadersExcluded>no</classLoadersExcluded> -->
 						<sealightsJvmParams>
 							<!-- <sl.featuresData.sendLogs>true</sl.featuresData.sendLogs>						 -->

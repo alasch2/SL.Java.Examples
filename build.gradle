@@ -48,13 +48,10 @@ buildscript {
             }
             url "http://nex.sealights.co:8081/repository/sealights-internal"
         }
-//        maven { 
-//            url uri("C:/Users/ala schneider/.m2/repository") 
-//        }
     }
     dependencies {
-        classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:2.1.0'
-        // classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:2.1.209'
+//        classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:3.0.0'
+        classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:3.0.568'
         // classpath 'io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:latest.release'
     }
 }
@@ -62,22 +59,20 @@ buildscript {
 /**
  * This is executed for any build when the 'sl' option is provided
  */
-
-subprojects {
+//subprojects {
+allprojects {
 //projects { - with this value plugin is not applied to subprojects 
     if (project.hasProperty('sl')) {
-       apply plugin: 'io.sealights.on-premise.agents.plugin.sealights-gradle-plugin'
+        apply plugin: 'io.sealights.on-premise.agents.plugin.sealights-gradle-plugin'
 
         sealights {
-            includeResources = true
-            //tokenFile = path/to/token
-            tokenFile = "C:/SL/ENV/tokens/sl-agents-token.txt"
+            includeResources = false
+            tokenFile = "C:/SL/ENV/tokens/sl-alasch-token.txt"
             // tokenFile = "C:/SL/ENV/tokens/sltoken-dev-hash.txt"
-            //workspacepath=${sourceSets.main.output.classesDir}
             // workspacepath=System.getProperty('ws')
             //buildSessionIdFile = "buildSessionId.txt"
             // logEnabled = false
-            // logLevel = "debug"
+            logLevel = "debug"
             logToFile = false
             logToConsole = true
             // appName and packagesIncluded are overwritten by subprojects
@@ -86,13 +81,18 @@ subprojects {
             packagesIncluded = "io.sl.ex.*"
             branch = "master"
             build = System.getProperty('sl.build')
+            buildSessionId = "test-provided-bsid-" + build
             createBuildSessionId = true
             // filesExcluded = "*Test"
             //buildScannerIgnoreLogEnabled=true
             // testListenerIgnoreLogEnabled=true
             // testStage = "ut1"
-            testListenerJar = "C:/Users/ala schneider/Dev/SL.OnPremise.Agents.Java/java-agent-bootstrapper/target/java-agent-bootstrapper-2.0.0-SNAPSHOT.jar"
-            buildScannerJar = "C:/Users/ala schneider/Dev/SL.OnPremise.Agents.Java/java-build-agent/target/java-build-agent-2.0.0-SNAPSHOT.jar"
+//            testTasks=["test"]
+
+//            testListenerJar = $testlistenerPath
+//            buildScannerJar = $buildscannerPath
+            testListenerJar = "C:/Users/AlaSchneider/Dev/SL.OnPremise.Agents.Java/java-agent-bootstrapper/target/java-agent-bootstrapper-3.0.0-SNAPSHOT.jar"
+            buildScannerJar = "C:/Users/AlaSchneider/Dev/SL.OnPremise.Agents.Java/java-build-agent/target/java-build-agent-3.0.0-SNAPSHOT.jar"
             // buildScannerJar ="C:/Users/ala schneider/Dev/Playground/sl-build-scanner-2.0.977.jar"
             // sealightsJvmParams=["sl.ignoreCertificateErrors":true, "sl.useApacheClient":"true"]
             sealightsJvmParams=[
@@ -106,7 +106,7 @@ subprojects {
 
             // The test tasks names for applying the test listener
             // If not provided, the default tasks are assigned like in commented value
-            //testTasks=["test", "junitPlatformTest", "integrationTest"]
+            // testTasks=["test":"Unit Tests", "junitPlatformTest":"Unit Tests", "integrationTest":"Integration Tests"]
             // runTestOnly = true
 
             // node-js build-session id for test of runFunctionalTests
@@ -116,20 +116,20 @@ subprojects {
 
         println "Assigned the default appName = $sealights.appName"
 
-        if (!project.hasProperty('all')) {
-            project.afterEvaluate {
-                subprojects {
-                    it.sealights.appName = ext.appName
-                    it.sealights.packagesIncluded = ext.packagesIncluded
-                }
-            }
-        }
+//        if (!project.hasProperty('all')) {
+//            project.afterEvaluate {
+//                subprojects {
+//                    it.sealights.appName = ext.appName
+//                    it.sealights.packagesIncluded = ext.packagesIncluded
+//                }
+//            }
+//        }
 
         test {
             sealights {
 //                testStage = "Some Tests Stage"
             }
         }
+
     }
 }
-

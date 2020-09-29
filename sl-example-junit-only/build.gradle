@@ -1,4 +1,16 @@
 
+sourceSets {
+    componentTest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+
+configurations {
+    componentTestImplementation.extendsFrom implementation
+    componentTestRuntimeOnly.extendsFrom runtimeOnly
+}
+
 dependencies {
     testCompile "junit:junit:${versions.junit}"
     testCompile "org.mockito:mockito-all:${versions.mockito}"
@@ -9,7 +21,27 @@ dependencies {
     compile "ch.qos.logback:logback-classic:${versions.logback}"
     compile "ch.qos.logback:logback-core:${versions.logback}"
     compile "org.slf4j:slf4j-api:${versions.slf4j}"
+    componentTestImplementation "junit:junit:${versions.junit}"
+//    testImplementation "junit:junit:${versions.junit}"
+    // This is for gradle 2.11
+    testCompile "junit:junit:${versions.junit}"
+
 }
+
+//task componentTest(type: Test) {
+//    doFirst {
+//        println("Running task $name")
+//    }
+//    description = 'Component tests.'
+//    group = 'verification'
+//
+//    testClassesDirs = sourceSets.componentTest.output.classesDirs
+//    classpath = sourceSets.componentTest.runtimeClasspath
+//
+//    outputs.upToDateWhen { false } // other way: inputs.upToDateWhen { false }
+//
+//    mustRunAfter test
+//}
 
 /***************************************************************************************
      SEALIGHTS
@@ -34,29 +66,47 @@ buildscript {
  * The default root project settings is overwritten to get particular results of the subproject
  */
 if (project.apply_sealights_in_subproject) {
-    apply plugin: 'io.sealights.on-premise.agents.plugin.sealights-gradle-plugin'
-
+//    apply plugin: 'io.sealights.on-premise.agents.plugin.sealights-gradle-plugin'
+//
     sealights {
         appName = "GradleExampleJunitOnly"
         classLoadersExcluded = "no"
         // proxy="alash:ezPass123@54.246.193.96:5476"
-        logToConsole = true
+        //logToConsole = true
         // logFolder="logsAAA"
         // sealightsJvmParams=["sl.ignoreCertificateErrors":"true"]
-        runTestOnly = false
-        filesStorage = "/alatmp"
+        //runTestOnly = false
+        //filesStorage = "/alatmp"
         // buildSessionIdFile = ""
         // createBuildSessionId = false
-
-
+//        testStage="other test stage"
+//        testTasks=["test", "componentTest"]
+//        testTasksAndStages=["test":"Unit Tests", "componentTest":"Component Tests"]
         // sealightsJvmParams=["sl.useApacheClient":"true", "sl.ignoreCertificateErrors":"true"]
         // sealightsJvmParams=["sl.ignoreCertificateErrors":"true","sl.httpDebugLog":"org.apache.http.headers"]
         // sealightsJvmParams=["sl.ignoreCertificateErrors":"true", "javax.net.debug":"all", "https.protocols":"TLSv1,TLSv1.1,TLSv1.2"]
         // sealightsJvmParams=["sl.ignoreCertificateErrors":"true", "javax.net.debug":"ssl,handshake", "https.protocols":"TLSv1,TLSv1.1,TLSv1.2"]
      }
     println "Applied the subproject appName = $sealights.appName"
-}
+ }
 
 test {
-   exclude '**/CalculatorUsePowerMock*.class'
+//    ext.testStage = "Unit Tests"
+    exclude '**/CalculatorUsePowerMock*.class'
 }
+//
+//componentTest {
+//    ext.testStage = "Component Tests"
+//}
+
+//test.doFirst {
+//    sealights {
+//        testStage = "Unit Tests"
+//    }
+//}
+//
+//componentTest.doFirst {
+//    sealights {
+//        testStage = "Component Tests"
+//    }
+//}

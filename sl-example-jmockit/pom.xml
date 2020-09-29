@@ -49,7 +49,7 @@
 					<artifactId>sealights-maven-plugin</artifactId>
 					<configuration>
  						<appName>SL-Maven-ExampleJMockit</appName>
-						<logLevel>info</logLevel>
+<!--						<logLevel>info</logLevel>-->
 						<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>
 						<sealightsJvmParams>
 <!-- 							<sl.featuresData.enableHttpColoring>true</sl.featuresData.enableHttpColoring> -->
