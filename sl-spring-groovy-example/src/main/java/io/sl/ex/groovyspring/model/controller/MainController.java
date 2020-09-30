@@ -3,19 +3,18 @@ package io.sl.ex.groovyspring.model.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.sl.ex.groovyspring.model.GPerson;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import io.sl.ex.groovyspring.model.model.Person;
-
 @Controller
 public class MainController {
-    private static List<Person> persons = new ArrayList<Person>();
+    private static List<GPerson> persons = new ArrayList<GPerson>();
 
     static {
-        persons.add(new Person("Bill", "Gates"));
-        persons.add(new Person("Steve", "Jobs"));
+        persons.add(new GPerson("Bill", "Gates"));
+        persons.add(new GPerson("Steve", "Jobs"));
     }
 
     @RequestMapping(value = "/")
