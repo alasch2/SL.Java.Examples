@@ -1,0 +1,91 @@
+16:07:56,555 INFO Scanning for projects...
+16:07:56,709 WARNING 
+16:07:56,710 WARNING Some problems were encountered while building the effective model for io.sealights.examples:sl-spring-groovy-example:jar:1.0.0-SNAPSHOT
+16:07:56,712 WARNING 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 80, column 12
+16:07:56,715 WARNING 
+16:07:56,715 WARNING It is highly recommended to fix these problems because they threaten the stability of your build.
+16:07:56,717 WARNING 
+16:07:56,717 WARNING For this reason, future Maven versions might no longer support building such malformed projects.
+16:07:56,719 WARNING 
+16:07:56,938 INFO 
+16:07:56,938 INFO -----------< io.sealights.examples:sl-spring-groovy-example >-----------
+16:07:56,939 INFO Building sl-spring-groovy-example 1.0.0-SNAPSHOT
+16:07:56,940 INFO --------------------------------[ jar ]---------------------------------
+16:07:57,310 INFO 
+16:07:57,311 INFO --- maven-dependency-plugin:2.8:tree (default-cli) @ sl-spring-groovy-example ---
+16:07:58,237 INFO io.sealights.examples:sl-spring-groovy-example:jar:1.0.0-SNAPSHOT
+16:07:58,237 INFO +- org.springframework.boot:spring-boot-starter-web:jar:2.2.8.RELEASE:compile
+16:07:58,238 INFO |  +- org.springframework.boot:spring-boot-starter:jar:2.2.8.RELEASE:compile
+16:07:58,238 INFO |  |  +- org.springframework.boot:spring-boot:jar:2.2.8.RELEASE:compile
+16:07:58,239 INFO |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.2.8.RELEASE:compile
+16:07:58,240 INFO |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.2.8.RELEASE:compile
+16:07:58,240 INFO |  |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.12.1:compile
+16:07:58,241 INFO |  |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.12.1:compile
+16:07:58,242 INFO |  |  |  \- org.slf4j:jul-to-slf4j:jar:1.7.30:compile
+16:07:58,242 INFO |  |  +- jakarta.annotation:jakarta.annotation-api:jar:1.3.5:compile
+16:07:58,242 INFO |  |  \- org.yaml:snakeyaml:jar:1.25:runtime
+16:07:58,243 INFO |  +- org.springframework.boot:spring-boot-starter-json:jar:2.2.8.RELEASE:compile
+16:07:58,243 INFO |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.10.4:compile
+16:07:58,244 INFO |  |  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.10.4:compile
+16:07:58,244 INFO |  |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.10.4:compile
+16:07:58,245 INFO |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.10.4:compile
+16:07:58,245 INFO |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.10.4:compile
+16:07:58,246 INFO |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.10.4:compile
+16:07:58,246 INFO |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:2.2.8.RELEASE:compile
+16:07:58,247 INFO |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.36:compile
+16:07:58,247 INFO |  |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:9.0.36:compile
+16:07:58,248 INFO |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:9.0.36:compile
+16:07:58,248 INFO |  +- org.springframework.boot:spring-boot-starter-validation:jar:2.2.8.RELEASE:compile
+16:07:58,249 INFO |  |  +- jakarta.validation:jakarta.validation-api:jar:2.0.2:compile
+16:07:58,249 INFO |  |  \- org.hibernate.validator:hibernate-validator:jar:6.0.20.Final:compile
+16:07:58,250 INFO |  |     +- org.jboss.logging:jboss-logging:jar:3.4.1.Final:compile
+16:07:58,250 INFO |  |     \- com.fasterxml:classmate:jar:1.5.1:compile
+16:07:58,251 INFO |  +- org.springframework:spring-web:jar:5.2.7.RELEASE:compile
+16:07:58,251 INFO |  |  \- org.springframework:spring-beans:jar:5.2.7.RELEASE:compile
+16:07:58,251 INFO |  \- org.springframework:spring-webmvc:jar:5.2.7.RELEASE:compile
+16:07:58,252 INFO |     +- org.springframework:spring-aop:jar:5.2.7.RELEASE:compile
+16:07:58,252 INFO |     +- org.springframework:spring-context:jar:5.2.7.RELEASE:compile
+16:07:58,253 INFO |     \- org.springframework:spring-expression:jar:5.2.7.RELEASE:compile
+16:07:58,253 INFO +- org.springframework.boot:spring-boot-starter-test:jar:2.2.8.RELEASE:test
+16:07:58,254 INFO |  +- org.springframework.boot:spring-boot-test:jar:2.2.8.RELEASE:test
+16:07:58,254 INFO |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:2.2.8.RELEASE:test
+16:07:58,255 INFO |  +- com.jayway.jsonpath:json-path:jar:2.4.0:test
+16:07:58,255 INFO |  |  \- net.minidev:json-smart:jar:2.3:test
+16:07:58,256 INFO |  |     \- net.minidev:accessors-smart:jar:1.2:test
+16:07:58,256 INFO |  |        \- org.ow2.asm:asm:jar:5.0.4:test
+16:07:58,256 INFO |  +- jakarta.xml.bind:jakarta.xml.bind-api:jar:2.3.3:test
+16:07:58,257 INFO |  |  \- jakarta.activation:jakarta.activation-api:jar:1.2.2:test
+16:07:58,258 INFO |  +- org.junit.jupiter:junit-jupiter:jar:5.5.2:test
+16:07:58,258 INFO |  |  +- org.junit.jupiter:junit-jupiter-api:jar:5.5.2:test
+16:07:58,258 INFO |  |  |  +- org.opentest4j:opentest4j:jar:1.2.0:test
+16:07:58,259 INFO |  |  |  \- org.junit.platform:junit-platform-commons:jar:1.5.2:test
+16:07:58,259 INFO |  |  +- org.junit.jupiter:junit-jupiter-params:jar:5.5.2:test
+16:07:58,260 INFO |  |  \- org.junit.jupiter:junit-jupiter-engine:jar:5.5.2:test
+16:07:58,260 INFO |  +- org.junit.vintage:junit-vintage-engine:jar:5.5.2:test
+16:07:58,260 INFO |  |  +- org.apiguardian:apiguardian-api:jar:1.1.0:test
+16:07:58,261 INFO |  |  +- org.junit.platform:junit-platform-engine:jar:1.5.2:test
+16:07:58,261 INFO |  |  \- junit:junit:jar:4.12:test
+16:07:58,262 INFO |  +- org.mockito:mockito-junit-jupiter:jar:3.1.0:test
+16:07:58,262 INFO |  +- org.assertj:assertj-core:jar:3.13.2:test
+16:07:58,262 INFO |  +- org.hamcrest:hamcrest:jar:2.1:test
+16:07:58,263 INFO |  +- org.mockito:mockito-core:jar:3.1.0:test
+16:07:58,263 INFO |  |  +- net.bytebuddy:byte-buddy:jar:1.10.11:test
+16:07:58,263 INFO |  |  +- net.bytebuddy:byte-buddy-agent:jar:1.10.11:test
+16:07:58,264 INFO |  |  \- org.objenesis:objenesis:jar:2.6:test
+16:07:58,264 INFO |  +- org.skyscreamer:jsonassert:jar:1.5.0:test
+16:07:58,264 INFO |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
+16:07:58,265 INFO |  +- org.springframework:spring-core:jar:5.2.7.RELEASE:compile
+16:07:58,265 INFO |  |  \- org.springframework:spring-jcl:jar:5.2.7.RELEASE:compile
+16:07:58,266 INFO |  +- org.springframework:spring-test:jar:5.2.7.RELEASE:test
+16:07:58,266 INFO |  \- org.xmlunit:xmlunit-core:jar:2.6.4:test
+16:07:58,266 INFO +- org.projectlombok:lombok:jar:1.16.16:compile
+16:07:58,267 INFO +- org.codehaus.groovy:groovy-all:jar:2.4.10:compile
+16:07:58,267 INFO +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+16:07:58,267 INFO +- ch.qos.logback:logback-core:jar:1.2.3:compile
+16:07:58,267 INFO \- org.slf4j:slf4j-api:jar:1.7.25:compile
+16:07:58,267 INFO ------------------------------------------------------------------------
+16:07:58,268 INFO BUILD SUCCESS
+16:07:58,268 INFO ------------------------------------------------------------------------
+16:07:58,271 INFO Total time:  1.734 s
+16:07:58,271 INFO Finished at: 2020-09-30T16:07:58+03:00
+16:07:58,272 INFO ------------------------------------------------------------------------
