@@ -12,6 +12,16 @@ ext {
     apply_sealights_in_subproject=false
 }
 
+if (project.hasProperty('sl')) {
+    if (project.hasProperty('all')) {
+        project.apply_sealights_in_subproject = false
+    }
+    else {
+        project.apply_sealights_in_subproject = true
+    }
+    println "'sl' provided; apply_sealights_in_subproject = $apply_sealights_in_subproject"
+}
+
 dependencies {
     testCompile "junit:junit:${versions.junit}"
     testCompile "org.testng:testng:${versions.testng}"
@@ -103,6 +113,15 @@ allprojects {
         }
 
         println "Assigned the default appName = $sealights.appName"
+
+//        if (!project.hasProperty('all')) {
+//            project.afterEvaluate {
+//                subprojects {
+//                    it.sealights.appName = ext.appName
+//                    it.sealights.packagesIncluded = ext.packagesIncluded
+//                }
+//            }
+//        }
 
         test {
             sealights {

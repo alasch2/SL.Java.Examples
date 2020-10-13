@@ -10,7 +10,7 @@
 	<artifactId>sl-example-jmockit</artifactId>
 
 	<properties>
-		<dev.properties.path>${project.parent.basedir}</dev.properties.path>
+		<dev.properties.path>${project.parent.parent.basedir}</dev.properties.path>
 		<!-- The property demands active debug session in InteliJ -->
 		<!-- <sldebug>${sldebugOn}</sldebug> -->
 		<jmockit.version>1.44</jmockit.version>

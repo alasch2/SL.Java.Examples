@@ -1,0 +1,43 @@
+apply plugin: 'java'
+// sourceCompatibility = 1.8
+// targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    // jcenter()
+}
+
+jar {
+    version = '1.0.0-SNAPSHOT'
+}
+
+if (project.hasProperty('trace_tests')) {
+    test {
+        beforeSuite { suite ->
+            println "Start suite: '$suite'"
+        }
+
+        afterSuite { suite, result ->
+            println "End suite: '$suite', result:'$result'"
+        }
+
+        beforeTest { testDescriptor ->
+            println ">>Start test: $testDescriptor'"
+
+        }
+        afterTest { testDescriptor, result ->
+            println "<<End test: '$testDescriptor', result:'$result'"
+        }
+    }
+}
+
+if (project.hasProperty('sl')) {
+    test {
+        doFirst { suite ->
+            println " ................. Using appName=$sealights.appName; testStage=$sealights.testStage ..........."
+//            jvmArgs sealights.javaAgentArg
+//            systemProperties(sealights.javaAgentJvmParams)
+        }
+    }
+}
+

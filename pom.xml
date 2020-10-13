@@ -31,9 +31,9 @@
 <!-- 		 <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version>-->
 <!--		<sealightsArgLine> </sealightsArgLine>-->
 		<!-- The development version  -->
-<!--		<sealights.plugin.version>3.0.0-SNAPSHOT</sealights.plugin.version>-->
+		<sealights.plugin.version>3.0.0-SNAPSHOT</sealights.plugin.version>
 		<!-- Recent version  -->
-				  <sealights.plugin.version>2.1.742</sealights.plugin.version>
+<!--				  <sealights.plugin.version>2.1.742</sealights.plugin.version>-->
 <!--		  <sealights.plugin.version>3.0.771</sealights.plugin.version>-->
 		
 		<!--  jacoco configuration -->
@@ -56,18 +56,12 @@
 	</properties>
 
 	<modules>
-		<module>sl-example-junit-only</module>
-		<module>sl-example-java8</module>
-    	<module>sl-example-junit-testng</module>
-    	<module>sl-example-junit5</module>
-  		<module>sl-example-testng-only</module>
-		<module>sl-example-jmockit</module>
-		<module>sl-example-soapui</module>
-		<module>sl-example-cucumber</module>
         <module>sl-example-spring-cloud-contract</module>
 	    <module>sl-stub-agent</module>
 		<module>sl-example-spring-calculator</module>
 		<module>sl-example-generate-class</module>
+		<module>sl-spring-groovy-example</module>
+		<module>sl-example-multi-module</module>
 	</modules>
 	
 	<dependencies>
@@ -351,22 +345,6 @@
 						<artifactId>properties-maven-plugin</artifactId>
 					</plugin>
 
-					<plugin>
-						<groupId>io.sealights.on-premise.agents.plugin</groupId>
-						<artifactId>sealights-maven-plugin</artifactId>
-						<!-- using different application name and packages -->
-						<configuration>
-							<appName>SL-Maven-AllExamples</appName>
-						</configuration>
-					</plugin>
-					
-<!--			        <plugin>-->
-<!--			            <groupId>org.apache.maven.plugins</groupId>-->
-<!--			            <artifactId>maven-surefire-plugin</artifactId>-->
-<!--			            <configuration>-->
-<!--			            	<argLine>@{sealightsArgLine}</argLine>-->
-<!--			            </configuration>-->
-<!--			        </plugin>-->
 				</plugins>
 			</build>
 		</profile>
