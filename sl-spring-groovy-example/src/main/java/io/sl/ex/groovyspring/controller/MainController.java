@@ -1,29 +1,21 @@
-package io.sl.ex.groovyspring.model.controller;
+package io.sl.ex.groovyspring.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import io.sl.ex.groovyspring.model.GPerson;
+import io.sl.ex.groovyspring.service.DepartmentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {
-    private static List<GPerson> persons = new ArrayList<GPerson>();
-
-    static {
-        persons.add(new GPerson("Bill", "Gates"));
-        persons.add(new GPerson("Steve", "Jobs"));
-    }
+    @Autowired
+    private DepartmentService department;
 
     @RequestMapping(value = "/")
     public String handleRequest(Model model) {
         String message = "Person List:";
-
         model.addAttribute("message", message);
-        model.addAttribute("persons", persons);
-
+        model.addAttribute("persons", department.getPersons());
         return "index";
     }
 
