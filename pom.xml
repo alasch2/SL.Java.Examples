@@ -34,10 +34,10 @@
 		<sealights.plugin.version>3.0.0-SNAPSHOT</sealights.plugin.version>
 		<!-- Recent version  -->
 <!--				  <sealights.plugin.version>2.1.742</sealights.plugin.version>-->
-<!--		  <sealights.plugin.version>3.0.771</sealights.plugin.version>-->
+<!--		  <sealights.plugin.version>3.0.976</sealights.plugin.version>-->
 		
 		<!--  jacoco configuration -->
-		<maven.jacoco.plugin.version>0.8.0</maven.jacoco.plugin.version>
+		<maven.jacoco.plugin.version>0.8.6</maven.jacoco.plugin.version>
 		<jacoco.reportPath>${project.build.directory}/jacoco-ut.exec</jacoco.reportPath>
 		<jacoco.reportPathIT>${project.build.directory}/jacoco-it.exec</jacoco.reportPathIT>
 
@@ -56,12 +56,12 @@
 	</properties>
 
 	<modules>
-        <module>sl-example-spring-cloud-contract</module>
-	    <module>sl-stub-agent</module>
-		<module>sl-example-spring-calculator</module>
-		<module>sl-example-generate-class</module>
-		<module>sl-spring-groovy-example</module>
-		<module>sl-example-multi-module</module>
+		<module>runtime-compilation-example</module>
+		<module>sl-example-wasapp-example</module>
+		<module>frameworks-research</module>
+		<module>sl-example-testng-demo</module>
+        <module>webhook-research</module>
+        <module>sl-mock-agent</module>
 	</modules>
 	
 	<dependencies>
@@ -143,23 +143,23 @@
 						<branch>master</branch>
 						<createBuildSessionId>true</createBuildSessionId>
 						<!-- <moduleName>${project.name}</moduleName> -->
-						<workspacepath>${project.build.outputDirectory}</workspacepath>
+<!--						<workspacepath>${project.build.outputDirectory}</workspacepath>-->
 						<filesincluded>*.class</filesincluded>
 						<packagesincluded>io.sl.ex.*</packagesincluded>
 						<filesexcluded>*test-classes*</filesexcluded>
- 						<logLevel>debug</logLevel>
+ 						<logLevel>info</logLevel>
 						<logToConsole>true</logToConsole>
 						 <logToFile>true</logToFile>
 						<testStage>Unit Tests</testStage>
-<!--						<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>-->
-						<testListenerIgnoreLogEnabled>true</testListenerIgnoreLogEnabled>
+						<buildScannerIgnoreLogEnabled>true</buildScannerIgnoreLogEnabled>
+<!--						<testListenerIgnoreLogEnabled>true</testListenerIgnoreLogEnabled>-->
 						<!-- <filesStorage>/tmp</filesStorage>-->
 						<!-- This is for fiddler -->
 <!--						<proxy>http://squid-proxy.dev.sealights.co:5476</proxy>-->
 <!--						 <proxy>127.0.0.1:8888</proxy>-->
 						<!-- <proxy>alash:ezPass123@54.246.150.1:5476</proxy> -->
 						<!-- <server>http://54.154.181.128:8080/api</server>  -->
-						<sendContributors>true</sendContributors>
+<!--						<sendContributors>true</sendContributors>-->
  						<testListenerJar>${testlistener.path}</testListenerJar>
 						<buildScannerJar>${buildscanner.path}</buildScannerJar>
 <!--						<enableNoneZeroErrorCode>true</enableNoneZeroErrorCode>-->
