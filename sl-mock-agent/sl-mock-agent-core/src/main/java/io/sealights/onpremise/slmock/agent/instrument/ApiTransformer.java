@@ -26,11 +26,13 @@ public class ApiTransformer implements ClassFileTransformer {
 			Class<?> classBeingRedefined,
 			ProtectionDomain protectionDomain, 
 			byte[] classFileBuffer) throws IllegalClassFormatException {
-		
-        if (className != null ) {
+
+
+        if (className != null && !className.startsWith("java") && !className.startsWith("sun")) {
         	return instrumentClass(loader, className, classBeingRedefined, protectionDomain, classFileBuffer);
         }
-        
+
+
         return null;
 	}
 	
@@ -43,9 +45,9 @@ public class ApiTransformer implements ClassFileTransformer {
     	
         ClassReader reader = new ClassReader(classFileBuffer);
         ClassWriter cw = new ClassWriter(reader, 0);
-        ClassVisitor apaClassVisitor = new ApiDetector.ApiDetectClassVisitor(cw);
+        ClassVisitor apaClassVisitor = new ApiClassVistor(cw);
         reader.accept(apaClassVisitor, ClassReader.EXPAND_FRAMES);
-        return cw.toByteArray();
+		return cw.toByteArray();
     }
     
 }
