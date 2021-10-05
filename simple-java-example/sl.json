@@ -1,0 +1,24 @@
+{
+  "tokenFile": "C:/SL/ENV/tokens/sl-alasch-token.txt",
+  "createBuildSessionId": true,
+  "appName": "simple-java-example",
+  "branchName": "master",
+  "buildName": "${System.getProperty('sl.build')}",
+  "packagesIncluded": "io.sl.ex.*",
+  "packagesExcluded": "",
+  "filesIncluded": "*.class",
+  "filesExcluded": "*test-classes*",
+  "recursive": true,
+  "includeResources": true,
+  "testTasksAndStages": {"test":"Unit Tests", "junitPlatformTest":"Unit Tests"},
+  "labId": null,
+  "executionType": "full",
+  "logDestination": "console",
+  "logLevel": "info",
+  "logFolder": "/tmp",
+  "scannerJar": "C:/Users/AlaSchneider/Dev/SL.OnPremise.Agents.Java/java-build-agent/target/java-build-agent-3.0.0-SNAPSHOT.jar",
+  "listenerJar": "C:/Users/AlaSchneider/Dev/SL.OnPremise.Agents.Java/java-agent-bootstrapper/target/java-agent-bootstrapper-3.0.0-SNAPSHOT.jar",
+  "gradleProjectConfig": {
+    "repoConfig": "mavenLocal()"
+  }
+}

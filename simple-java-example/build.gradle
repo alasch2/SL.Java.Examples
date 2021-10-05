@@ -1,0 +1,76 @@
+buildscript {
+    repositories {
+        mavenLocal()
+    }
+    dependencies {
+        classpath('io.sealights.on-premise.agents.plugin:sealights-gradle-plugin:3.1.676')
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+group 'io.sl.ex'
+version '1.0.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompileOnly 'junit:junit:4.12'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.3.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+allprojects.each { p ->
+    def included = []
+    def excluded = []
+
+    if (!included.isEmpty()) {
+        println "[SeaLights Integration] Including only projects: ${included}"
+    }
+
+    if (!excluded.isEmpty()) {
+        println "[SeaLights Integration] Excluding projects: ${excluded}"
+    }
+
+    if (!excluded.contains(p.name) &&
+            (included.isEmpty() || included.contains(p.name))) {
+        println "[SeaLights Integration] SeaLights applied to project: '${p.name}'"
+
+        p.afterEvaluate {
+
+            p.apply plugin: io.sealights.onpremise.agents.plugin.SealightsPlugin
+            p.sealights {
+
+tokenFile="C:/SL/ENV/tokens/sl-alasch-token.txt"
+appName="simple-java-example"
+filesIncluded="*.class"
+filesExcluded="*test-classes*"
+packagesIncluded="io.sl.ex.*"
+packagesExcluded=""
+recursive=true
+includeResources=true
+runScanOnly=false
+runTestOnly=false
+logEnabled=false
+logPluginMinimal=false
+logToConsole=true
+logLevel="info"
+logFolder="/tmp"
+createBuildSessionId=true
+testTasksAndStages=["test" : "Unit Tests", "junitPlatformTest" : "Unit Tests"]
+build="${System.getProperty('sl.build')}"
+branch="master"
+buildScannerJar="C:/Users/AlaSchneider/Dev/SL.OnPremise.Agents.Java/java-build-agent/target/java-build-agent-3.0.0-SNAPSHOT.jar"
+testListenerJar="C:/Users/AlaSchneider/Dev/SL.OnPremise.Agents.Java/java-agent-bootstrapper/target/java-agent-bootstrapper-3.0.0-SNAPSHOT.jar"
+
+            }
+        }
+    }
+}
