@@ -1,6 +1,6 @@
 rootProject.name = 'javaexamples'
-include 'sl-example-junit-only'
-include 'sl-example-junit-testng'
+include 'sl-example-multi-module/sl-example-junit-only'
+include 'sl-example-multi-module/sl-example-junit-testng'
 
 def currentGradleVersion = gradle.gradleVersion
 def currentGradleVersionMajor = Integer.parseInt(currentGradleVersion.substring(0,1));
@@ -8,13 +8,13 @@ println "Running gradle major version:$currentGradleVersionMajor  (version $curr
 
 // JUnit 5 anf jmockit are not supported by gradle 3.5
 if (System.getProperty("junit5") && currentGradleVersionMajor > 3) {
-    include 'sl-example-junit5'
+    include 'sl-example-multi-module/sl-example-junit5'
 }
 if (currentGradleVersionMajor > 3) {
-    include 'sl-example-jmockit'
+    include 'sl-example-multi-module/sl-example-jmockit'
 }
 
 // java8 is not supported by gradle 2
 if (currentGradleVersionMajor > 2) {
-    include 'sl-example-java8'
+    include 'sl-example-multi-module/sl-example-java8'
 }
