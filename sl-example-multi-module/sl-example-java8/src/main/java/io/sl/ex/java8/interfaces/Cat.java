@@ -10,4 +10,8 @@ public class Cat implements Animal {
     public String getName() {
         return "cat";
     }
+
+    public void sayMyu() {
+        System.out.println("Myu...");
+    }
 }
