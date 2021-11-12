@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>io.sealights.examples</groupId>
+		<artifactId>frameworks-research</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>testng-listeners</artifactId>
+	<properties>
+		<testng.version>7.1.0</testng.version>
+<!-- 		<testng.version>6.14.3</testng.version> -->
+	</properties>
+	
+	
+	<dependencies>
+        <dependency>
+        	<groupId>org.testng</groupId>
+        	<artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+	        <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+<!-- 	               <suiteXmlFiles> -->
+<!-- 	                   <suiteXmlFile>src/test/resources/suite1.xml</suiteXmlFile> -->
+<!-- 	               </suiteXmlFiles> -->
+	            	<properties>
+	            		<property>
+	            			<name>listener</name>
+<!-- 	            			<value>listener.TestListener</value> -->
+<!-- 	            			<value>listener.TestFlowListener1</value> -->
+<!-- 	            			<value>listener.TestFlowListener2</value> -->
+	            		</property>
+	            		<property>
+<!-- 	            			<name>surefire.testng.verbose</name> -->
+<!-- 	            			<value>10</value> -->
+	            		</property>
+	            	</properties>
+	            </configuration>
+            </plugin>
+		</plugins>
+	</build>
+	
+</project>

@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>io.sealights.examples</groupId>
+	<artifactId>frameworks-research</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<properties>
+		<lombok.version>1.18.12</lombok.version>
+		<maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
+<!-- 		<maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version> -->
+<!-- 		<maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version> -->
+		<maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version>
+	</properties>
+	
+	<dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+	</dependencies>
+	
+	<modules>
+		<module>testng-listeners</module>
+		<module>cucumber-formatters</module>
+	</modules>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+		
+		<pluginManagement>
+			<plugins>
+		        <plugin>
+		            <groupId>org.apache.maven.plugins</groupId>
+		            <artifactId>maven-surefire-plugin</artifactId>
+		            <version>${maven.surefire.plugin.version}</version>
+	            </plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
