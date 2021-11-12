@@ -1,0 +1,5 @@
+{
+  "excludedTests":[
+	  {"name":"suite-2.calculators-tests","testFramework":"TestNG"}
+   ]  
+}

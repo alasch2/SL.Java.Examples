@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="suite-1" verbose="10" >
+    <test name="all-classes-test" >
+        <packages>
+            <package name="io.sl.ex.testng.*" />
+        </packages>
+    </test>
+</suite>

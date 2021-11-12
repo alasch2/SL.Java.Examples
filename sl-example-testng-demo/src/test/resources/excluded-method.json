@@ -1,0 +1,5 @@
+{
+  "excludedTests":[
+	  {"name":"io.sl.ex.testng.calculator.CalcTestNGTest.testDoPower","testFramework":"TestNG"}
+   ]  
+}
